@@ -21,6 +21,7 @@ export const IssueTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
+            <p>slug: {slug}</p>
             <p>{description}</p>
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -61,7 +62,7 @@ const Issue = ({ data }) => {
       helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
-      slug={post.id}
+      slug={post.fields.slug}
     />
   )
 }
@@ -79,6 +80,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
