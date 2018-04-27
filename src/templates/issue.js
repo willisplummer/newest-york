@@ -41,7 +41,7 @@ export const IssueTemplate = ({
   )
 }
 
-BlogPostTemplate.propTypes = {
+IssueTemplate.propTypes = {
   content: PropTypes.string.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -61,7 +61,7 @@ const Issue = ({ data }) => {
       helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
-      slug={post.frontmatter.slug}
+      slug={post.id}
     />
   )
 }
@@ -75,7 +75,7 @@ Issue.propTypes = {
 export default Issue
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
+  query IssueById($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
@@ -84,7 +84,6 @@ export const pageQuery = graphql`
         title
         description
         tags
-        slug
       }
     }
   }
