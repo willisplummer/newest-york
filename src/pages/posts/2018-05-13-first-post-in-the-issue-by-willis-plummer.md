@@ -8,6 +8,8 @@ tags:
   - issue 1
   - cool stuff
 ---
+![Image](/img/eggu.jpeg)
+
 This is the first post
 
 Pretend That
