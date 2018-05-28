@@ -8,14 +8,18 @@ export default class IndexPage extends React.Component {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
     const issues = posts.filter(post => post.node.frontmatter.templateKey === 'issue');
-    const latestIssueNumber = issues.length
+
     const latestIssue = issues[0].node
+    const latestIssueNumber = issues.length
     const latestIssueMonth = latestIssue.frontmatter.date.split(' ')[0]
     const { textColor, backgroundColor, title: latestIssueTitle } = latestIssue.frontmatter
+
+    const articles = posts.filter(post => post.node.frontmatter.templateKey === 'article')
+    console.log('articles', articles)
+
+    const latestIssueArticles = articles.filter(article => article.node.frontmatter.issue === latestIssueTitle)
+
     console.log(latestIssueMonth, textColor, backgroundColor)
-    const latestIssueArticles = posts.filter(({ node: { frontmatter: { templateKey, issue } } }) =>
-      templateKey === 'article' && issue === latestIssue.frontmatter.name
-    )
 
     return (
       <section className="section">
