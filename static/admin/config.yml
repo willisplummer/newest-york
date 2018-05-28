@@ -13,6 +13,8 @@ collections:
       Issues are published monthly, have a collection of associated articles, and define their own custom color scheme.
     folder: "src/pages/issues"
     create: true
+    editor:
+      preview: false
     slug: "{{title}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "issue"}
@@ -45,6 +47,8 @@ collections:
     description: >
       Authors write articles.
     folder: "src/pages/authors"
+    editor:
+      preview: false
     create: true
     slug: "{{slug}}"
     fields:
