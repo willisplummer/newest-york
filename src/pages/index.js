@@ -38,6 +38,7 @@ export default class IndexPage extends React.Component {
                   </Link>
                 </p>
                 <p>
+                  {console.log(post.frontmatter)}
                   {post.frontmatter.author}
                 </p>
               </div>
