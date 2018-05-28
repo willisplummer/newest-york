@@ -8,9 +8,11 @@ export default class IndexPage extends React.Component {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
     const issues = posts.filter(post => post.node.frontmatter.templateKey === 'issue');
+    const latestIssueNumber = issues.length
     const latestIssue = issues[0].node
     const latestIssueMonth = latestIssue.frontmatter.date.split(' ')[0]
-    console.log(latestIssueMonth)
+    const { textColor, backgroundColor, title: latestIssueTitle } = latestIssue.frontmatter
+    console.log(latestIssueMonth, textColor, backgroundColor)
     const latestIssueArticles = posts.filter(({ node: { frontmatter: { templateKey, issue } } }) =>
       templateKey === 'article' && issue === latestIssue.frontmatter.name
     )
@@ -19,7 +21,9 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
           <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">{latestIssue.frontmatter.title}</h1>
+            <h1 className="has-text-weight-bold is-size-2">
+              {`Issue ${latestIssueNumber}: ${latestIssueTitle}`}
+            </h1>
           </div>
           {latestIssueArticles
             .map(({ node: post }) => (
@@ -68,6 +72,8 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             issue
             author
+            backgroundColor
+            textColor
           }
         }
       }
