@@ -6,6 +6,21 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "authors"
+    label: "Authors"
+    label_singular: "Author"
+    description: >
+      Authors write articles.
+    folder: "src/pages/authors"
+    editor:
+      preview: false
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author"}
+      - {label: "Name", name: "title", widget: "string"}
+      - {label: "Bio", name: "bio", widget: "markdown"}
+
   - name: "issues"
     label: "Issues"
     label_singular: "Issue"
@@ -36,25 +51,10 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article"}
       - {label: "Associated Issue", name: "issue", widget: "relation", collection: "issues", searchFields: ["title"], valueField: "title"}
-      - {label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["name"], valueField: "name"}
+      - {label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["title"], valueField: "title"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-
-  - name: "authors"
-    label: "Authors"
-    label_singular: "Author"
-    description: >
-      Authors write articles.
-    folder: "src/pages/authors"
-    editor:
-      preview: false
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author"}
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Bio", name: "bio", widget: "markdown"}
 
   - name: "pages"
     label: "Pages"
