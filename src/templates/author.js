@@ -30,13 +30,13 @@ export const AuthorTemplate = ({
 }
 
 const Author = ({ data }) => {
-  const { markdownRemark: author } = data
+  const { markdownRemark: post } = data
 
   return (
     <AuthorTemplate
       contentComponent={HTMLContent}
-      helmet={<Helmet title={`${post.frontmatter.title} | Author`} />}
-      name={post.frontmatter.title}
+      helmet={<Helmet title={`${post.frontmatter.name} | Author`} />}
+      name={post.frontmatter.name}
       bio={post.frontmatter.bio}
     />
   )
@@ -50,7 +50,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        title
+        name: title
         bio
       }
     }
