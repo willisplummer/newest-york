@@ -7,12 +7,12 @@ import Content, { HTMLContent } from '../components/Content'
 export const ArticleTemplate = ({
   content,
   contentComponent,
-  body,
   title,
   helmet,
 }) => {
   const PostContent = contentComponent || Content
 
+  console.log('here')
   return (
     <section className="section">
       {helmet || ''}
@@ -22,7 +22,6 @@ export const ArticleTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <p>{body}</p>
             <PostContent content={content} />
           </div>
         </div>
@@ -38,7 +37,6 @@ const Article = ({ data }) => {
     <ArticleTemplate
       content={post.html}
       contentComponent={HTMLContent}
-      body={post.frontmatter.body}
       helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
       title={post.frontmatter.title}
     />
