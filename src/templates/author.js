@@ -1,11 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
 
-export const BlogPostTemplate = ({
+export const AuthorTemplate = ({
   name,
   bio,
   contentComponent,
@@ -30,33 +29,20 @@ export const BlogPostTemplate = ({
   )
 }
 
-BlogPostTemplate.propTypes = {
-  name: PropTypes.string.isRequired,
-  bio: PropTypes.string.isRequired,
-  helmet: PropTypes.instanceOf(Helmet),
-  contentComponent: PropTypes.func,
-}
-
-const BlogPost = ({ data }) => {
+const Author = ({ data }) => {
   const { markdownRemark: author } = data
 
   return (
-    <BlogPostTemplate
+    <AuthorTemplate
       contentComponent={HTMLContent}
-      helmet={<Helmet title={`${post.frontmatter.name} | Author`} />}
+      helmet={<Helmet title={`${post.frontmatter.title} | Author`} />}
       name={post.frontmatter.title}
       bio={post.frontmatter.bio}
     />
   )
 }
 
-BlogPost.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
-
-export default BlogPost
+export default Author
 
 export const pageQuery = graphql`
   query AuthorById($id: String!) {
@@ -64,7 +50,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        name: title
+        title
         bio
       }
     }

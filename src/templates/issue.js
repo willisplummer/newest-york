@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
@@ -28,14 +27,6 @@ export const IssueTemplate = ({
   )
 }
 
-IssueTemplate.propTypes = {
-  blurb: PropTypes.string.isRequired,
-  contentComponent: PropTypes.func,
-  slug: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
-}
-
 const Issue = ({ data }) => {
   const { markdownRemark: post } = data
 
@@ -47,12 +38,6 @@ const Issue = ({ data }) => {
       slug={post.fields.slug}
     />
   )
-}
-
-Issue.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
 }
 
 export default Issue
