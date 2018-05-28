@@ -1,20 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+import maxBy from 'lodash/maxBy'
 
 export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
+    const issues = posts.filter(post => post.node.frontmatter.templateKey === 'issue');
+    const latestIssue = issues[0].node
+    const latestIssueMonth = latestIssue.frontmatter.date.split(' ')[0]
+    console.log(latestIssueMonth)
+    const latestIssueArticles = posts.filter(({ node: { frontmatter: { templateKey, issue } } }) =>
+      templateKey === 'article' && issue === latestIssue.frontmatter.name
+    )
 
     return (
       <section className="section">
         <div className="container">
           <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
+            <h1 className="has-text-weight-bold is-size-2">{latestIssue.frontmatter.title}</h1>
           </div>
-          {posts
-            .filter(post => post.node.frontmatter.templateKey === 'blog-post')
+          {latestIssueArticles
             .map(({ node: post }) => (
               <div
                 className="content"
@@ -25,16 +32,9 @@ export default class IndexPage extends React.Component {
                   <Link className="has-text-primary" to={post.fields.slug}>
                     {post.frontmatter.title}
                   </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
                 </p>
                 <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button is-small" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
+                  {post.frontmatter.author}
                 </p>
               </div>
             ))}
@@ -66,6 +66,8 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")
+            issue
+            author
           }
         }
       }
