@@ -5,12 +5,14 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
 
-export const IssueTemplate = ({
-  blurb,
-  title,
-  slug,
+export const BlogPostTemplate = ({
+  name,
+  bio,
+  contentComponent,
   helmet,
 }) => {
+  const PostContent = contentComponent || Content
+
   return (
     <section className="section">
       {helmet || ''}
@@ -18,9 +20,9 @@ export const IssueTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
+              {name}
             </h1>
-            <p>{blurb}</p>
+            <PostContent content={bio} />
           </div>
         </div>
       </div>
@@ -28,47 +30,42 @@ export const IssueTemplate = ({
   )
 }
 
-IssueTemplate.propTypes = {
-  blurb: PropTypes.string.isRequired,
-  contentComponent: PropTypes.func,
-  slug: PropTypes.string,
-  title: PropTypes.string,
+BlogPostTemplate.propTypes = {
+  name: PropTypes.string.isRequired,
+  bio: PropTypes.string.isRequired,
   helmet: PropTypes.instanceOf(Helmet),
+  contentComponent: PropTypes.func,
 }
 
-const Issue = ({ data }) => {
-  const { markdownRemark: post } = data
+const BlogPost = ({ data }) => {
+  const { markdownRemark: author } = data
 
   return (
-    <IssueTemplate
-      content={post.frontmatter.blurb}
-      helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
-      title={post.frontmatter.title}
-      slug={post.fields.slug}
+    <BlogPostTemplate
+      contentComponent={HTMLContent}
+      helmet={<Helmet title={`${post.frontmatter.name} | Author`} />}
+      name={post.frontmatter.title}
+      bio={post.frontmatter.bio}
     />
   )
 }
 
-Issue.propTypes = {
+BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default Issue
+export default BlogPost
 
 export const pageQuery = graphql`
-  query IssueById($id: String!) {
+  query AuthorById($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
-      fields {
-        slug
-      }
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        blurb
+        name: title
+        bio
       }
     }
   }
