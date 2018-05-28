@@ -39,7 +39,7 @@ const Article = ({ data }) => {
       content={post.html}
       contentComponent={HTMLContent}
       body={post.frontmatter.body}
-      helmet={<Helmet title={`${article.frontmatter.title} | Blog`} />}
+      helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
       title={post.frontmatter.title}
     />
   )
