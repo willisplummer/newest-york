@@ -1,12 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const Navbar = () => (
+const Navbar = ({ issueMonthYear }) => (
   <nav className="navbar is-transparent">
     <div className="container">
       <div className="navbar-start">
         <span className="navbar-item">
-          May Issue
+          {issueMonthYear}
         </span>
       </div>
       <div className="navbar-end">

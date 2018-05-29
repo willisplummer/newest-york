@@ -1,15 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Navbar from '../components/Navbar'
 import Logo from '../components/Logo'
 import './all.sass'
+
+const logoWrapStyles = {
+  width: '100px',
+  // transform: 'rotate(-90deg)'
+  // width: 'auto',
+  // position: 'fixed',
+  // left: 0,
+  // top: 100,
+}
 
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title="Newest York" />
-    <Logo color="red"/>
-    <Navbar />
+    <div style={logoWrapStyles}>
+      <Logo color="red"/>
+    </div>
     <div>{children()}</div>
   </div>
 )
