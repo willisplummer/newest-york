@@ -3,6 +3,7 @@ templateKey: article
 issue: Fork It
 author: Newest York
 title: Gullet Stuff
+subtitle: Publisher's Note
 tags:
   - Food
   - Editors Note
