@@ -1,4 +1,8 @@
 module.exports = {
+  mapping: {
+    "MarkdownRemark.fields.author": "MarkdownRemark",
+    "MarkdownRemark.fields.articles": "MarkdownRemark",
+  },
   siteMetadata: {
     title: 'Newest York',
   },
