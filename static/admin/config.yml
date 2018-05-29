@@ -50,9 +50,11 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article"}
-      - {label: "Associated Issue", name: "issue", widget: "relation", collection: "issues", searchFields: ["title"], valueField: "id"}
-      - {label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["title"], valueField: "id"}
+      - {label: "Associated Issue", name: "issue", widget: "relation", collection: "issues", searchFields: ["title"], valueField: "title"}
+      - {label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["title"], valueField: "title"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Subtitle", name: "subtitle", widget: "string"}
+      - {label: "Order", name: "order", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
 

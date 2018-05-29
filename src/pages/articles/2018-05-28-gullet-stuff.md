@@ -4,6 +4,7 @@ issue: Fork It
 author: Newest York
 title: Gullet Stuff
 subtitle: Publisher's Note
+order: 1
 tags:
   - Food
   - Editors Note

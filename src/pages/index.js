@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
-import maxBy from 'lodash/maxBy'
+import _ from 'lodash'
 import Navbar from '../components/Navbar'
 
 export default class IndexPage extends React.Component {
@@ -20,7 +20,7 @@ export default class IndexPage extends React.Component {
     const articles = posts.filter(post => post.node.frontmatter.templateKey === 'article')
     console.log('articles', articles)
 
-    const latestIssueArticles = articles.filter(article => article.node.frontmatter.issue === latestIssueTitle)
+    const latestIssueArticles = _.sortBy(articles.filter(article => article.node.frontmatter.issue === latestIssueTitle), article => article.node.frontmatter.order)
 
     console.log(latestIssueMonth, textColor, backgroundColor)
 
@@ -47,8 +47,10 @@ export default class IndexPage extends React.Component {
                     </Link>
                   </p>
                   <p>
-                    {console.log(post.frontmatter)}
                     {post.frontmatter.author}
+                  </p>
+                  <p>
+                    {post.frontmatter.subtitle}
                   </p>
                 </div>
               ))}
@@ -79,10 +81,12 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            subtitle
             templateKey
             date(formatString: "MMMM DD, YYYY")
             issue
             author
+            order
             backgroundColor
             textColor
           }
