@@ -46,7 +46,7 @@ const AboutPage = ({ data }) => {
   const masthead = markdown.toHTML(post.frontmatter.masthead)
 
   const latestIssueMonthYear = _.get(allMarkdownRemark, 'edges[0].node.frontmatter.issueMonthYear')
-  console.log(allMarkdownRemark.edges[0])
+
   return (
     <AboutPageTemplate
       contentComponent={HTMLContent}

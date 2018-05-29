@@ -18,11 +18,8 @@ export default class IndexPage extends React.Component {
     const { textColor, backgroundColor, title: latestIssueTitle } = latestIssue.frontmatter
 
     const articles = posts.filter(post => post.node.frontmatter.templateKey === 'article')
-    console.log('articles', articles)
 
     const latestIssueArticles = _.sortBy(articles.filter(article => article.node.frontmatter.issue === latestIssueTitle), article => article.node.frontmatter.order)
-
-    console.log(latestIssueMonth, textColor, backgroundColor)
 
     return (
       <div>
