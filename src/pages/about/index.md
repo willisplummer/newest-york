@@ -1,19 +1,78 @@
 ---
-templateKey: 'about-page'
-path: /about
-title: About our values
+templateKey: about-page
+title: About
+masthead: >-
+  Published and edited by Zach Halberg.
+
+
+  Thank you to the contributors below:
+
+
+
+
+  # NEWEST YORK 
+
+
+  ## Visuals editor
+
+
+  Jonno Rattman
+
+
+
+
+  ## Contributing editors
+
+
+  Kayla Kumari Upadhyaya, Stela Xhiku, Hilary Reid, Ashley D'Arcy, John Surico
+
+
+
+
+  ## Associate publishers
+
+
+  Haley Weiss, Chuka Ugwu-Oju
+
+
+
+
+  # NEWEST YORK ARTS PRESS
+
+
+  ## Art directors
+
+
+  Bonnie Briant, Bobbie Richardson
+
+
+
+
+  ## Production manager
+
+
+  Luke Chase
+
+
+
+
+  ## Board of directors
+
+
+  Bonnie Briant, Chuka Ugwu-oju, Hilary Reid, Kayla Kumari Upadhyaya, Ruoyi
+  Jiang, Tanmay Kumar, Jonno Rattman
+callForSubmissions: >-
+  Newest York's seventeenth issue FORK IT will explore how, what, and why we eat
+  and drink. Submissions for pitches are now open. Emphasis on arts strongly
+  encouraged. Contributors must reside in NYC, and pitch must present some
+  tangential connection to the city. Newest York pays a stipend of $50 per
+  contribution. Please submit pitches to <mailto:info@newestyork.co>. FORK IT
+  will be published in April 2018.
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
+Newest York is a project of Newest York Arts Press, a 501(c)3 not-for-profit publisher & arts organization.
 
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
+Our mission is to support and showcase local artists whose work engages with New York City.  
 
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+Send us an email at info@newestyork.co or find us on Instagram or Twitter.
 
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
-
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+Your contribution will enable us to continue to support and showcase local artists. If you are a New York resident, click here to donate.
