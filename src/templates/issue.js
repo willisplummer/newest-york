@@ -4,12 +4,7 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
 
-export const IssueTemplate = ({
-  blurb,
-  title,
-  slug,
-  helmet,
-}) => {
+export const IssueTemplate = ({ blurb, title, slug, helmet }) => {
   return (
     <section className="section">
       {helmet || ''}

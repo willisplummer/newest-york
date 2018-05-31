@@ -4,12 +4,7 @@ import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
 
-export const AuthorTemplate = ({
-  name,
-  bio,
-  contentComponent,
-  helmet,
-}) => {
+export const AuthorTemplate = ({ name, bio, contentComponent, helmet }) => {
   const PostContent = contentComponent || Content
 
   return (

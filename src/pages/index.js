@@ -8,18 +8,31 @@ export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
-    const issues = posts.filter(post => post.node.frontmatter.templateKey === 'issue');
+    const issues = posts.filter(
+      post => post.node.frontmatter.templateKey === 'issue'
+    )
 
     const latestIssue = issues[0].node
     const latestIssueNumber = issues.length
     const latestIssueMonth = latestIssue.frontmatter.date.split(' ')[0]
     const latestIssueYear = latestIssue.frontmatter.date.split(' ')[2]
     const issueMonthYear = `${latestIssueMonth} ${latestIssueYear}`
-    const { textColor, backgroundColor, title: latestIssueTitle } = latestIssue.frontmatter
+    const {
+      textColor,
+      backgroundColor,
+      title: latestIssueTitle,
+    } = latestIssue.frontmatter
 
-    const articles = posts.filter(post => post.node.frontmatter.templateKey === 'article')
+    const articles = posts.filter(
+      post => post.node.frontmatter.templateKey === 'article'
+    )
 
-    const latestIssueArticles = _.sortBy(articles.filter(article => article.node.frontmatter.issue === latestIssueTitle), article => article.node.frontmatter.order)
+    const latestIssueArticles = _.sortBy(
+      articles.filter(
+        article => article.node.frontmatter.issue === latestIssueTitle
+      ),
+      article => article.node.frontmatter.order
+    )
 
     return (
       <div>
@@ -31,26 +44,21 @@ export default class IndexPage extends React.Component {
                 {`Issue ${latestIssueNumber}: ${latestIssueTitle}`}
               </h1>
             </div>
-            {latestIssueArticles
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                  </p>
-                  <p>
-                    {post.frontmatter.author}
-                  </p>
-                  <p>
-                    {post.frontmatter.subtitle}
-                  </p>
-                </div>
-              ))}
+            {latestIssueArticles.map(({ node: post }) => (
+              <div
+                className="content"
+                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
+                key={post.id}
+              >
+                <p>
+                  <Link className="has-text-primary" to={post.fields.slug}>
+                    {post.frontmatter.title}
+                  </Link>
+                </p>
+                <p>{post.frontmatter.author}</p>
+                <p>{post.frontmatter.subtitle}</p>
+              </div>
+            ))}
           </div>
         </section>
       </div>

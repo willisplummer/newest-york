@@ -17,7 +17,7 @@ const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title="Newest York" />
     <div style={logoWrapStyles}>
-      <Logo color="red"/>
+      <Logo color="red" />
     </div>
     <div>{children()}</div>
   </div>

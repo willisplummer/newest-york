@@ -26,7 +26,7 @@ export const ArticleTemplate = ({
               {title} by {authorName}
             </h1>
             <PostContent content={content} />
-            <div className='columns'>
+            <div className="columns">
               <div className="column is-6">
                 <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
                   Bio
@@ -37,9 +37,7 @@ export const ArticleTemplate = ({
                 <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
                   Tags
                 </h1>
-                <ul>
-                  {tags.map(t => <li>{t}</li>)}
-                </ul>
+                <ul>{tags.map(t => <li>{t}</li>)}</ul>
               </div>
             </div>
           </div>
@@ -51,7 +49,14 @@ export const ArticleTemplate = ({
 
 const Article = ({ data }) => {
   const { markdownRemark: post } = data
-  const { fields: { author: { fields: { slug: authorSlug }, frontmatter: { title: authorName, bio: authorBio } } } } = post
+  const {
+    fields: {
+      author: {
+        fields: { slug: authorSlug },
+        frontmatter: { title: authorName, bio: authorBio },
+      },
+    },
+  } = post
 
   return (
     <ArticleTemplate

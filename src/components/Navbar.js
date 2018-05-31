@@ -5,9 +5,7 @@ const Navbar = ({ issueMonthYear }) => (
   <nav className="navbar is-transparent">
     <div className="container">
       <div className="navbar-start">
-        <span className="navbar-item">
-          {issueMonthYear}
-        </span>
+        <span className="navbar-item">{issueMonthYear}</span>
       </div>
       <div className="navbar-end">
         <Link className="navbar-item" to="/about">

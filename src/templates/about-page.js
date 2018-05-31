@@ -1,10 +1,17 @@
 import React from 'react'
-import {markdown} from 'markdown'
+import { markdown } from 'markdown'
 import Content, { HTMLContent } from '../components/Content'
 import Navbar from '../components/Navbar'
 import _ from 'lodash'
 
-export const AboutPageTemplate = ({ title, content, contentComponent, masthead, callForSubmissions, issueMonthYear }) => {
+export const AboutPageTemplate = ({
+  title,
+  content,
+  contentComponent,
+  masthead,
+  callForSubmissions,
+  issueMonthYear,
+}) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -42,10 +49,15 @@ export const AboutPageTemplate = ({ title, content, contentComponent, masthead, 
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post, allMarkdownRemark } = data
-  const callForSubmissions = markdown.toHTML(post.frontmatter.callForSubmissions)
+  const callForSubmissions = markdown.toHTML(
+    post.frontmatter.callForSubmissions
+  )
   const masthead = markdown.toHTML(post.frontmatter.masthead)
 
-  const latestIssueMonthYear = _.get(allMarkdownRemark, 'edges[0].node.frontmatter.issueMonthYear')
+  const latestIssueMonthYear = _.get(
+    allMarkdownRemark,
+    'edges[0].node.frontmatter.issueMonthYear'
+  )
 
   return (
     <AboutPageTemplate
@@ -72,12 +84,12 @@ export const aboutPageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      limit: 1,
-      sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "issue" } }}
+      limit: 1
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { templateKey: { eq: "issue" } } }
     ) {
       edges {
-        node{
+        node {
           frontmatter {
             issueMonthYear: date(formatString: "MMMM YYYY")
           }
