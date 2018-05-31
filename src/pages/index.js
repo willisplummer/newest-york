@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import _ from 'lodash';
-import Navbar from '../components/Navbar';
+import Layout from '../components/Layout';
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
@@ -15,8 +15,8 @@ const IndexPage = ({ data }) => {
   const latestIssueYear = latestIssue.frontmatter.date.split(' ')[2];
   const issueMonthYear = `${latestIssueMonth} ${latestIssueYear}`;
   const {
-    // textColor,
-    // backgroundColor,
+    textColor,
+    backgroundColor,
     title: latestIssueTitle,
   } = latestIssue.frontmatter;
 
@@ -32,8 +32,11 @@ const IndexPage = ({ data }) => {
   );
 
   return (
-    <div>
-      <Navbar issueMonthYear={issueMonthYear} />
+    <Layout
+      issueMonthYear={issueMonthYear}
+      textColor={textColor}
+      backgroundColor={backgroundColor}
+    >
       <section className="section">
         <div className="container">
           <div className="content">
@@ -58,7 +61,7 @@ const IndexPage = ({ data }) => {
           ))}
         </div>
       </section>
-    </div>
+    </Layout>
   );
 };
 
