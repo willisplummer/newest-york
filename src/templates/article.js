@@ -1,7 +1,5 @@
 import React from 'react';
-import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
 import Content, { HTMLContent } from '../components/Content';
 
 export const ArticleTemplate = ({
@@ -15,7 +13,6 @@ export const ArticleTemplate = ({
 }) => {
   const PostContent = contentComponent || Content;
 
-  console.log('here');
   return (
     <section className="section">
       {helmet || ''}
@@ -52,7 +49,7 @@ const Article = ({ data }) => {
   const {
     fields: {
       author: {
-        fields: { slug: authorSlug },
+        // fields: { slug: authorSlug },
         frontmatter: { title: authorName, bio: authorBio },
       },
     },
@@ -73,6 +70,7 @@ const Article = ({ data }) => {
 
 export default Article;
 
+// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query ArticleById($id: String!) {
     markdownRemark(id: { eq: $id }) {

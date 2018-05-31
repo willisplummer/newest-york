@@ -1,10 +1,7 @@
 import React from 'react';
-import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
-import Content, { HTMLContent } from '../components/Content';
 
-export const IssueTemplate = ({ blurb, title, slug, helmet }) => (
+export const IssueTemplate = ({ blurb, title, helmet }) => (
   <section className="section">
     {helmet || ''}
     <div className="container content">
@@ -35,6 +32,7 @@ const Issue = ({ data }) => {
 
 export default Issue;
 
+// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query IssueById($id: String!) {
     markdownRemark(id: { eq: $id }) {

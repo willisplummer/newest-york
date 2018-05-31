@@ -1,7 +1,5 @@
 import React from 'react';
-import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
 import Content, { HTMLContent } from '../components/Content';
 
 export const AuthorTemplate = ({ name, bio, contentComponent, helmet }) => {
@@ -39,6 +37,7 @@ const Author = ({ data }) => {
 
 export default Author;
 
+// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query AuthorById($id: String!) {
     markdownRemark(id: { eq: $id }) {
