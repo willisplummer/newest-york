@@ -1,11 +1,10 @@
 import React from 'react';
 import { markdown } from 'markdown';
+import _ from 'lodash';
 import Content, { HTMLContent } from '../components/Content';
 import Navbar from '../components/Navbar';
-import _ from 'lodash';
 
 export const AboutPageTemplate = ({
-  title,
   content,
   contentComponent,
   masthead,
@@ -73,6 +72,7 @@ const AboutPage = ({ data }) => {
 
 export default AboutPage;
 
+// eslint-disable-next-line no-undef
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
     markdownRemark(id: { eq: $id }) {

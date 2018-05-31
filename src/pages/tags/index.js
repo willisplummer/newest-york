@@ -32,6 +32,7 @@ const TagsPage = ({
 
 export default TagsPage;
 
+// eslint-disable-next-line no-undef
 export const tagPageQuery = graphql`
   query TagsQuery {
     site {

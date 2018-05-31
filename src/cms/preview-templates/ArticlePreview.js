@@ -8,11 +8,4 @@ const ArticlePreview = ({ entry, widgetFor }) => (
   />
 );
 
-ArticlePreview.propTypes = {
-  entry: PropTypes.shape({
-    getIn: PropTypes.func,
-  }),
-  widgetFor: PropTypes.func,
-};
-
 export default ArticlePreview;
