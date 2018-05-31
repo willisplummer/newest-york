@@ -1,25 +1,25 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import styled from 'styled-components';
 import Logo from '../components/Logo';
-import './all.sass';
-
-const logoWrapStyles = {
-  width: '100px',
-  // transform: 'rotate(-90deg)'
-  // width: 'auto',
-  // position: 'fixed',
-  // left: 0,
-  // top: 100,
-};
 
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title="Newest York" />
-    <div style={logoWrapStyles}>
+    <LogoWrap>
       <Logo color="red" />
-    </div>
+    </LogoWrap>
     <div>{children()}</div>
   </div>
 );
 
 export default TemplateWrapper;
+
+const LogoWrap = styled.div`
+  width: 120px;
+  position: absolute;
+  zindex: 10;
+  transform: rotate(-90deg);
+  top: 300px;
+  left: 0;
+`;

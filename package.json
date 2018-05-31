@@ -4,7 +4,6 @@
   "version": "1.1.1",
   "author": "Austin Green",
   "dependencies": {
-    "bulma": "^0.6.0",
     "eslint": "4.10.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.7.0",
@@ -30,7 +29,8 @@
     "markdown": "^0.5.0",
     "netlify-cms": "^1.8.4",
     "react": "^16.2.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "styled-components": "^3.3.0"
   },
   "keywords": [
     "gatsby"
