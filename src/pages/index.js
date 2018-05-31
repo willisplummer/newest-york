@@ -1,6 +1,7 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import _ from 'lodash';
+import Article from '../components/current-issue/Article';
+import IssueTitle from '../components/current-issue/IssueTitle';
 import Layout from '../components/shared/Layout';
 
 const IndexPage = ({ data }) => {
@@ -38,28 +39,16 @@ const IndexPage = ({ data }) => {
       backgroundColor={backgroundColor}
     >
       <section className="section">
-        <div className="container">
-          <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">
-              {`Issue ${latestIssueNumber}: ${latestIssueTitle}`}
-            </h1>
-          </div>
-          {latestIssueArticles.map(({ node: post }) => (
-            <div
-              className="content"
-              style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-              key={post.id}
-            >
-              <p>
-                <Link className="has-text-primary" to={post.fields.slug}>
-                  {post.frontmatter.title}
-                </Link>
-              </p>
-              <p>{post.frontmatter.author}</p>
-              <p>{post.frontmatter.subtitle}</p>
-            </div>
-          ))}
-        </div>
+        <IssueTitle title={latestIssueTitle} issueNumber={latestIssueNumber} />
+        {latestIssueArticles.map(({ node: post }) => (
+          <Article
+            key={post.fields.slug}
+            slug={post.fields.slug}
+            title={post.frontmatter.title}
+            author={post.frontmatter.author}
+            subtitle={post.frontmatter.subtitle}
+          />
+        ))}
       </section>
     </Layout>
   );
