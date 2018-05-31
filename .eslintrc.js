@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = {
-  parser: 'babel-eslint',
   extends: ['airbnb', 'prettier'],
   plugins: ['prettier', 'import', 'flowtype', 'prefer-object-spread'],
   env: {
