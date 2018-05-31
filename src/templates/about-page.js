@@ -1,8 +1,8 @@
 import React from 'react';
 import { markdown } from 'markdown';
 import _ from 'lodash';
-import Content, { HTMLContent } from '../components/Content';
-import Navbar from '../components/Navbar';
+import Content, { HTMLContent } from '../components/shared/Content';
+import Navbar from '../components/shared/Navbar';
 
 export const AboutPageTemplate = ({
   content,

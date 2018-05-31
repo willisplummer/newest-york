@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Content, { HTMLContent } from '../components/Content';
+import Content, { HTMLContent } from '../components/shared/Content';
 
 export const AuthorTemplate = ({ name, bio, contentComponent, helmet }) => {
   const PostContent = contentComponent || Content;

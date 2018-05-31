@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from '../components/Logo';
-import Navbar from '../components/Navbar';
+import Logo from './Logo';
+import Navbar from './Navbar';
 
 const Layout = ({ children, issueMonthYear, textColor, backgroundColor }) => (
   <Background backgroundColor={backgroundColor} textColor={textColor}>

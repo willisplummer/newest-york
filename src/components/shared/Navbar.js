@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
-import StyledText from '../styles/text';
+import StyledText from '../../styles/text';
 
 const Navbar = ({ issueMonthYear }) => (
   <Nav>

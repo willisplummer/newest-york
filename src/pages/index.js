@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import _ from 'lodash';
-import Layout from '../components/Layout';
+import Layout from '../components/shared/Layout';
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
