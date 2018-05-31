@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import _ from 'lodash';
 import Navbar from '../components/Navbar';
@@ -61,14 +60,6 @@ const IndexPage = ({ data }) => {
       </section>
     </div>
   );
-};
-
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
 };
 
 export default IndexPage;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ArticleTemplate } from '../../templates/about-page';
 
 const ArticlePreview = ({ entry, widgetFor }) => (
