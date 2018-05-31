@@ -3,8 +3,8 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import StyledText from '../styles/text';
 
-const Navbar = ({ issueMonthYear, textColor }) => (
-  <Nav color={textColor}>
+const Navbar = ({ issueMonthYear }) => (
+  <Nav>
     <div>
       <StyledText className="navbar-item">{issueMonthYear}</StyledText>
     </div>
@@ -38,7 +38,6 @@ const Navbar = ({ issueMonthYear, textColor }) => (
 export default Navbar;
 
 const Nav = styled.nav`
-  color: ${({ color }) => color};
   padding: 10px 35px;
   display: flex;
   justify-content: space-between;

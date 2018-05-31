@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 
 const Layout = ({ children, issueMonthYear, textColor, backgroundColor }) => (
   <Background backgroundColor={backgroundColor} textColor={textColor}>
-    <Navbar textColor={textColor} issueMonthYear={issueMonthYear} />
+    <Navbar issueMonthYear={issueMonthYear} />
     <Container>
       <Gutter>
         <LogoWrap>
