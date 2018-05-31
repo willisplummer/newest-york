@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Logo from '../components/Logo'
-import './all.sass'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import Logo from '../components/Logo';
+import './all.sass';
 
 const logoWrapStyles = {
   width: '100px',
@@ -11,7 +11,7 @@ const logoWrapStyles = {
   // position: 'fixed',
   // left: 0,
   // top: 100,
-}
+};
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -21,10 +21,10 @@ const TemplateWrapper = ({ children }) => (
     </div>
     <div>{children()}</div>
   </div>
-)
+);
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
-}
+};
 
-export default TemplateWrapper
+export default TemplateWrapper;

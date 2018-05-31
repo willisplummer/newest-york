@@ -1,29 +1,27 @@
-import React from 'react'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
-import Content, { HTMLContent } from '../components/Content'
+import React from 'react';
+import { kebabCase } from 'lodash';
+import Helmet from 'react-helmet';
+import Link from 'gatsby-link';
+import Content, { HTMLContent } from '../components/Content';
 
-export const IssueTemplate = ({ blurb, title, slug, helmet }) => {
-  return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{blurb}</p>
-          </div>
+export const IssueTemplate = ({ blurb, title, slug, helmet }) => (
+  <section className="section">
+    {helmet || ''}
+    <div className="container content">
+      <div className="columns">
+        <div className="column is-10 is-offset-1">
+          <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            {title}
+          </h1>
+          <p>{blurb}</p>
         </div>
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+);
 
 const Issue = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <IssueTemplate
@@ -32,10 +30,10 @@ const Issue = ({ data }) => {
       title={post.frontmatter.title}
       slug={post.fields.slug}
     />
-  )
-}
+  );
+};
 
-export default Issue
+export default Issue;
 
 export const pageQuery = graphql`
   query IssueById($id: String!) {
@@ -52,4 +50,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

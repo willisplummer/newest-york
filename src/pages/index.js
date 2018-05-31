@@ -1,38 +1,38 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import _ from 'lodash'
-import Navbar from '../components/Navbar'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import _ from 'lodash';
+import Navbar from '../components/Navbar';
 
 export default class IndexPage extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
     const issues = posts.filter(
-      post => post.node.frontmatter.templateKey === 'issue'
-    )
+      post => post.node.frontmatter.templateKey === 'issue',
+    );
 
-    const latestIssue = issues[0].node
-    const latestIssueNumber = issues.length
-    const latestIssueMonth = latestIssue.frontmatter.date.split(' ')[0]
-    const latestIssueYear = latestIssue.frontmatter.date.split(' ')[2]
-    const issueMonthYear = `${latestIssueMonth} ${latestIssueYear}`
+    const latestIssue = issues[0].node;
+    const latestIssueNumber = issues.length;
+    const latestIssueMonth = latestIssue.frontmatter.date.split(' ')[0];
+    const latestIssueYear = latestIssue.frontmatter.date.split(' ')[2];
+    const issueMonthYear = `${latestIssueMonth} ${latestIssueYear}`;
     const {
       textColor,
       backgroundColor,
       title: latestIssueTitle,
-    } = latestIssue.frontmatter
+    } = latestIssue.frontmatter;
 
     const articles = posts.filter(
-      post => post.node.frontmatter.templateKey === 'article'
-    )
+      post => post.node.frontmatter.templateKey === 'article',
+    );
 
     const latestIssueArticles = _.sortBy(
       articles.filter(
-        article => article.node.frontmatter.issue === latestIssueTitle
+        article => article.node.frontmatter.issue === latestIssueTitle,
       ),
-      article => article.node.frontmatter.order
-    )
+      article => article.node.frontmatter.order,
+    );
 
     return (
       <div>
@@ -62,7 +62,7 @@ export default class IndexPage extends React.Component {
           </div>
         </section>
       </div>
-    )
+    );
   }
 }
 
@@ -72,7 +72,7 @@ IndexPage.propTypes = {
       edges: PropTypes.array,
     }),
   }),
-}
+};
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -99,4 +99,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

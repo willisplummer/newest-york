@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 
 const Navbar = ({ issueMonthYear }) => (
   <nav className="navbar is-transparent">
@@ -33,6 +33,6 @@ const Navbar = ({ issueMonthYear }) => (
       </div>
     </div>
   </nav>
-)
+);
 
-export default Navbar
+export default Navbar;

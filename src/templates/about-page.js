@@ -1,8 +1,8 @@
-import React from 'react'
-import { markdown } from 'markdown'
-import Content, { HTMLContent } from '../components/Content'
-import Navbar from '../components/Navbar'
-import _ from 'lodash'
+import React from 'react';
+import { markdown } from 'markdown';
+import Content, { HTMLContent } from '../components/Content';
+import Navbar from '../components/Navbar';
+import _ from 'lodash';
 
 export const AboutPageTemplate = ({
   title,
@@ -12,7 +12,7 @@ export const AboutPageTemplate = ({
   callForSubmissions,
   issueMonthYear,
 }) => {
-  const PageContent = contentComponent || Content
+  const PageContent = contentComponent || Content;
 
   return (
     <div>
@@ -44,20 +44,20 @@ export const AboutPageTemplate = ({
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
 const AboutPage = ({ data }) => {
-  const { markdownRemark: post, allMarkdownRemark } = data
+  const { markdownRemark: post, allMarkdownRemark } = data;
   const callForSubmissions = markdown.toHTML(
-    post.frontmatter.callForSubmissions
-  )
-  const masthead = markdown.toHTML(post.frontmatter.masthead)
+    post.frontmatter.callForSubmissions,
+  );
+  const masthead = markdown.toHTML(post.frontmatter.masthead);
 
   const latestIssueMonthYear = _.get(
     allMarkdownRemark,
-    'edges[0].node.frontmatter.issueMonthYear'
-  )
+    'edges[0].node.frontmatter.issueMonthYear',
+  );
 
   return (
     <AboutPageTemplate
@@ -68,10 +68,10 @@ const AboutPage = ({ data }) => {
       content={post.html}
       issueMonthYear={latestIssueMonthYear}
     />
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;
 
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
@@ -97,4 +97,4 @@ export const aboutPageQuery = graphql`
       }
     }
   }
-`
+`;

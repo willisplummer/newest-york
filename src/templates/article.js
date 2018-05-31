@@ -1,8 +1,8 @@
-import React from 'react'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
-import Content, { HTMLContent } from '../components/Content'
+import React from 'react';
+import { kebabCase } from 'lodash';
+import Helmet from 'react-helmet';
+import Link from 'gatsby-link';
+import Content, { HTMLContent } from '../components/Content';
 
 export const ArticleTemplate = ({
   authorName,
@@ -13,9 +13,9 @@ export const ArticleTemplate = ({
   helmet,
   tags,
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
-  console.log('here')
+  console.log('here');
   return (
     <section className="section">
       {helmet || ''}
@@ -44,11 +44,11 @@ export const ArticleTemplate = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 const Article = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
   const {
     fields: {
       author: {
@@ -56,7 +56,7 @@ const Article = ({ data }) => {
         frontmatter: { title: authorName, bio: authorBio },
       },
     },
-  } = post
+  } = post;
 
   return (
     <ArticleTemplate
@@ -68,10 +68,10 @@ const Article = ({ data }) => {
       authorName={authorName}
       authorBio={authorBio}
     />
-  )
-}
+  );
+};
 
-export default Article
+export default Article;
 
 export const pageQuery = graphql`
   query ArticleById($id: String!) {
@@ -96,4 +96,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

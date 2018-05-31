@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Logo = ({ color = '#000000' }) => (
   <svg
@@ -21,6 +21,6 @@ const Logo = ({ color = '#000000' }) => (
       />
     </g>
   </svg>
-)
+);
 
-export default Logo
+export default Logo;
