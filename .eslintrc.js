@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   extends: ['airbnb', 'prettier'],
   plugins: ['prettier', 'import', 'flowtype', 'prefer-object-spread'],
