@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Content, { HTMLContent } from '../components/shared/Content';
+import Layout from '../components/shared/Layout';
 
 export const ArticleTemplate = ({
   authorName,
@@ -10,37 +11,41 @@ export const ArticleTemplate = ({
   title,
   helmet,
   tags,
+  textColor,
+  issueMonthYear,
 }) => {
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title} by {authorName}
-            </h1>
-            <PostContent content={content} />
-            <div className="columns">
-              <div className="column is-6">
-                <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                  Bio
-                </h1>
-                <PostContent content={authorBio} />
-              </div>
-              <div className="column is-6">
-                <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                  Tags
-                </h1>
-                <ul>{tags.map(t => <li>{t}</li>)}</ul>
+    <Layout issueMonthYear={issueMonthYear} textColor={textColor}>
+      <section className="section">
+        {helmet || ''}
+        <div className="container content">
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+                {title} by {authorName}
+              </h1>
+              <PostContent content={content} />
+              <div className="columns">
+                <div className="column is-6">
+                  <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+                    Bio
+                  </h1>
+                  <PostContent content={authorBio} />
+                </div>
+                <div className="column is-6">
+                  <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+                    Tags
+                  </h1>
+                  <ul>{tags.map(t => <li key={t}>{t}</li>)}</ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Layout>
   );
 };
 
@@ -48,6 +53,7 @@ const Article = ({ data }) => {
   const { markdownRemark: post } = data;
   const {
     fields: {
+      issue: { frontmatter: { textColor, issueMonthYear } },
       author: {
         // fields: { slug: authorSlug },
         frontmatter: { title: authorName, bio: authorBio },
@@ -64,6 +70,8 @@ const Article = ({ data }) => {
       tags={post.frontmatter.tags}
       authorName={authorName}
       authorBio={authorBio}
+      textColor={textColor}
+      issueMonthYear={issueMonthYear}
     />
   );
 };
@@ -77,6 +85,12 @@ export const pageQuery = graphql`
       id
       html
       fields {
+        issue {
+          frontmatter {
+            textColor
+            issueMonthYear: date(formatString: "MMMM YYYY")
+          }
+        }
         author {
           fields {
             slug

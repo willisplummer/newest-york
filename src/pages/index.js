@@ -1,4 +1,5 @@
 import React from 'react';
+import compact from 'lodash/compact';
 import sortBy from 'lodash/sortBy';
 import Article from '../components/current-issue/Article';
 import IssueTitle from '../components/current-issue/IssueTitle';
@@ -19,7 +20,7 @@ const IndexPage = ({ data }) => {
 
   const { fields: { articles } } = latestIssue;
 
-  const sortedArticles = sortBy(articles, 'frontmatter.order');
+  const sortedArticles = compact(sortBy(articles, 'frontmatter.order'));
 
   return (
     <Layout
