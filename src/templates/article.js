@@ -2,6 +2,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Content, { HTMLContent } from '../components/shared/Content';
 import Layout from '../components/shared/Layout';
+import Columns, { Column } from '../components/shared/Columns';
+import StyledText from '../styles/text';
 
 export const ArticleTemplate = ({
   authorName,
@@ -18,33 +20,23 @@ export const ArticleTemplate = ({
 
   return (
     <Layout issueMonthYear={issueMonthYear} textColor={textColor}>
-      <section className="section">
+      <StyledText>
         {helmet || ''}
-        <div className="container content">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                {title} by {authorName}
-              </h1>
-              <PostContent content={content} />
-              <div className="columns">
-                <div className="column is-6">
-                  <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                    Bio
-                  </h1>
-                  <PostContent content={authorBio} />
-                </div>
-                <div className="column is-6">
-                  <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                    Tags
-                  </h1>
-                  <ul>{tags.map(t => <li key={t}>{t}</li>)}</ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        <h1>
+          {title} by {authorName}
+        </h1>
+        <PostContent content={content} />
+        <Columns>
+          <Column>
+            <h2>Bio</h2>
+            <PostContent content={authorBio} />
+          </Column>
+          <Column>
+            <h2>Tags</h2>
+            <ul>{tags.map(t => <li key={t}>{t}</li>)}</ul>
+          </Column>
+        </Columns>
+      </StyledText>
     </Layout>
   );
 };
