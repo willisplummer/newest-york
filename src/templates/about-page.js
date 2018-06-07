@@ -2,7 +2,8 @@ import React from 'react';
 import { markdown } from 'markdown';
 import _ from 'lodash';
 import Content, { HTMLContent } from '../components/shared/Content';
-import Navbar from '../components/shared/Navbar';
+import Columns, { Column } from '../components/shared/Columns';
+import Layout from '../components/shared/Layout';
 
 export const AboutPageTemplate = ({
   content,
@@ -10,39 +11,31 @@ export const AboutPageTemplate = ({
   masthead,
   callForSubmissions,
   issueMonthYear,
+  textColor,
 }) => {
   const PageContent = contentComponent || Content;
 
   return (
-    <div>
-      <Navbar issueMonthYear={issueMonthYear} />
-      <section className="section section--gradient">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-6">
-              <div className="section">
-                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                  About
-                </h2>
-                <PageContent className="content" content={content} />
-                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                  Submitting
-                </h2>
-                <PageContent className="content" content={callForSubmissions} />
-              </div>
-            </div>
-            <div className="column is-6">
-              <div className="section">
-                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                  Masthead
-                </h2>
-                <PageContent className="content" content={masthead} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    <Layout textColor={textColor} issueMonthYear={issueMonthYear}>
+      <Columns>
+        <Column>
+          <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+            About
+          </h2>
+          <PageContent className="content" content={content} />
+          <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+            Submitting
+          </h2>
+          <PageContent className="content" content={callForSubmissions} />
+        </Column>
+        <Column>
+          <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+            Masthead
+          </h2>
+          <PageContent className="content" content={masthead} />
+        </Column>
+      </Columns>
+    </Layout>
   );
 };
 
@@ -57,6 +50,10 @@ const AboutPage = ({ data }) => {
     allMarkdownRemark,
     'edges[0].node.frontmatter.issueMonthYear',
   );
+  const textColor = _.get(
+    allMarkdownRemark,
+    'edges[0].node.frontmatter.textColor',
+  );
 
   return (
     <AboutPageTemplate
@@ -66,6 +63,7 @@ const AboutPage = ({ data }) => {
       callForSubmissions={callForSubmissions}
       content={post.html}
       issueMonthYear={latestIssueMonthYear}
+      textColor={textColor}
     />
   );
 };
@@ -92,6 +90,7 @@ export const aboutPageQuery = graphql`
         node {
           frontmatter {
             issueMonthYear: date(formatString: "MMMM YYYY")
+            textColor
           }
         }
       }

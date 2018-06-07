@@ -6,17 +6,12 @@ import StyledText from '../../styles/text';
 const Navbar = ({ issueMonthYear }) => (
   <Nav>
     <div>
-      <StyledText className="navbar-item">{issueMonthYear}</StyledText>
+      <StyledLink to="/">{issueMonthYear}</StyledLink>
     </div>
     <div>
-      <NavLink className="navbar-item" to="/about">
-        About
-      </NavLink>
-      <NavLink className="navbar-item" to="/archive">
-        Archive
-      </NavLink>
+      <NavLink to="/about">About</NavLink>
+      <NavLink to="/archive">Archive</NavLink>
       <ExternalNavLink
-        className="navbar-item"
         href="http://www.newestyork.co/buy-a-book/"
         target="_blank"
         rel="noopener noreferrer"
@@ -24,7 +19,6 @@ const Navbar = ({ issueMonthYear }) => (
         Shop
       </ExternalNavLink>
       <ExternalNavLink
-        className="navbar-item"
         href="http://www.newestyork.co/blog/"
         target="_blank"
         rel="noopener noreferrer"
@@ -43,7 +37,9 @@ const Nav = styled.nav`
   justify-content: space-between;
 `;
 
-const NavLink = StyledText.withComponent(Link).extend`
+const StyledLink = StyledText.withComponent(Link);
+
+const NavLink = StyledLink.extend`
   margin-left: 20px;
 `;
 

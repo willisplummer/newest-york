@@ -6,10 +6,10 @@ import IssueTitle from '../components/current-issue/IssueTitle';
 import Layout from '../components/shared/Layout';
 
 const IndexPage = ({ data }) => {
-  const { edges: issues } = data.allMarkdownRemark;
+  const { edges: issues, totalCount } = data.allMarkdownRemark;
 
   const latestIssue = issues[0].node;
-  const latestIssueNumber = issues.totalCount;
+  const latestIssueNumber = totalCount;
 
   const {
     textColor,

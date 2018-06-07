@@ -57,7 +57,7 @@ const Article = ({ data }) => {
     <ArticleTemplate
       content={post.html}
       contentComponent={HTMLContent}
-      helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
+      helmet={<Helmet title={`${post.frontmatter.title} | Newest York`} />}
       title={post.frontmatter.title}
       tags={post.frontmatter.tags}
       authorName={authorName}
