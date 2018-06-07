@@ -21,28 +21,24 @@ const IndexPage = ({ data }) => {
 
   const sortedArticles = sortBy(articles, 'frontmatter.order');
 
-  console.log(latestIssue, articles);
-
   return (
     <Layout
       issueMonthYear={publicationMonthYear}
       textColor={textColor}
       backgroundColor={backgroundColor}
     >
-      <section className="section">
-        <IssueTitle title={latestIssueTitle} issueNumber={latestIssueNumber} />
-        {sortedArticles.map(
-          ({ fields: { slug }, frontmatter: { title, author, subtitle } }) => (
-            <Article
-              key={slug}
-              slug={slug}
-              title={title}
-              author={author}
-              subtitle={subtitle}
-            />
-          ),
-        )}
-      </section>
+      <IssueTitle title={latestIssueTitle} issueNumber={latestIssueNumber} />
+      {sortedArticles.map(
+        ({ fields: { slug }, frontmatter: { title, author, subtitle } }) => (
+          <Article
+            key={slug}
+            slug={slug}
+            title={title}
+            author={author}
+            subtitle={subtitle}
+          />
+        ),
+      )}
     </Layout>
   );
 };
