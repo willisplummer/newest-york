@@ -21,6 +21,8 @@ const IndexPage = ({ data }) => {
 
   const sortedArticles = sortBy(articles, 'frontmatter.order');
 
+  console.log(latestIssue, articles);
+
   return (
     <Layout
       issueMonthYear={publicationMonthYear}
