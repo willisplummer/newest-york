@@ -32,6 +32,8 @@ const Container = styled.div`
 
 const Main = styled.div`
   flex: 1;
+  max-width: 800px;
+  margin: 0 auto;
 `;
 
 // TODO: THE WIDTH IS BEING SET BEFORE THE ROTATION

@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import RehypeReact from 'rehype-react';
 import styled from 'styled-components';
 import Tags from '../components/article/Tags';
 import Content, { HTMLContent } from '../components/shared/Content';
@@ -7,6 +8,12 @@ import Layout from '../components/shared/Layout';
 import Columns, { Column } from '../components/shared/Columns';
 import StyledText from '../styles/text';
 import Header from '../styles/header';
+import Image from '../styles/image';
+
+const renderAst = new RehypeReact({
+  createElement: React.createElement,
+  components: { img: Image },
+}).Compiler;
 
 export const ArticleTemplate = ({
   authorName,
@@ -28,7 +35,7 @@ export const ArticleTemplate = ({
         <Header>
           {title} by {authorName}
         </Header>
-        <PostContent content={content} />
+        {renderAst(content)}
         <Columns>
           <Column>
             <Subhead>Bio</Subhead>
@@ -56,9 +63,10 @@ const Article = ({ data }) => {
     },
   } = post;
 
+  console.log(post);
   return (
     <ArticleTemplate
-      content={post.html}
+      content={post.htmlAst}
       contentComponent={HTMLContent}
       helmet={<Helmet title={`${post.frontmatter.title} | Newest York`} />}
       title={post.frontmatter.title}
@@ -78,7 +86,7 @@ export const pageQuery = graphql`
   query ArticleById($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
-      html
+      htmlAst
       fields {
         issue {
           frontmatter {
