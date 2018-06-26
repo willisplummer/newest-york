@@ -37,14 +37,14 @@ export const ArticleTemplate = ({
         </Header>
         {renderAst(content)}
         <Columns>
-          <Column>
+          <BottomCol>
             <Subhead>Bio</Subhead>
             <PostContent content={authorBio} />
-          </Column>
-          <Column>
+          </BottomCol>
+          <BottomCol>
             <Subhead>Tags</Subhead>
             <Tags tags={tags} />
-          </Column>
+          </BottomCol>
         </Columns>
       </StyledText>
     </Layout>
@@ -63,7 +63,6 @@ const Article = ({ data }) => {
     },
   } = post;
 
-  console.log(post);
   return (
     <ArticleTemplate
       content={post.htmlAst}
@@ -115,4 +114,8 @@ export const pageQuery = graphql`
 
 const Subhead = styled.div`
   text-transform: uppercase;
+`;
+
+const BottomCol = Column.extend`
+  margin-bottom: 50px;
 `;
