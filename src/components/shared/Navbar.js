@@ -2,12 +2,13 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import StyledText from '../../styles/text';
+import media from '../../styles/media-queries';
 
 const Navbar = ({ issueMonthYear }) => (
   <Nav>
-    <div>
+    <First>
       <StyledLink to="/">{issueMonthYear}</StyledLink>
-    </div>
+    </First>
     <div>
       <NavLink to="/about">About</NavLink>
       <NavLink to="/archive">Archive</NavLink>
@@ -32,9 +33,22 @@ const Navbar = ({ issueMonthYear }) => (
 export default Navbar;
 
 const Nav = styled.nav`
-  padding: 10px 35px;
+  padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+
+  ${media.small`
+    padding: 10px 35px;
+    justify-content: space-between;
+  `};
+`;
+
+const First = styled.div`
+  display: none;
+
+  ${media.small`
+    display: inline;
+  `};
 `;
 
 const StyledLink = StyledText.withComponent(Link);

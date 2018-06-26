@@ -1,9 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import styled from 'styled-components';
+import Tags from '../components/article/Tags';
 import Content, { HTMLContent } from '../components/shared/Content';
 import Layout from '../components/shared/Layout';
 import Columns, { Column } from '../components/shared/Columns';
 import StyledText from '../styles/text';
+import Header from '../styles/header';
 
 export const ArticleTemplate = ({
   authorName,
@@ -22,18 +25,18 @@ export const ArticleTemplate = ({
     <Layout issueMonthYear={issueMonthYear} textColor={textColor}>
       <StyledText>
         {helmet || ''}
-        <h1>
+        <Header>
           {title} by {authorName}
-        </h1>
+        </Header>
         <PostContent content={content} />
         <Columns>
           <Column>
-            <h2>Bio</h2>
+            <Subhead>Bio</Subhead>
             <PostContent content={authorBio} />
           </Column>
           <Column>
-            <h2>Tags</h2>
-            <ul>{tags.map(t => <li key={t}>{t}</li>)}</ul>
+            <Subhead>Tags</Subhead>
+            <Tags tags={tags} />
           </Column>
         </Columns>
       </StyledText>
@@ -100,4 +103,8 @@ export const pageQuery = graphql`
       }
     }
   }
+`;
+
+const Subhead = styled.div`
+  text-transform: uppercase;
 `;
