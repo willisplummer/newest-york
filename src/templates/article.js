@@ -6,9 +6,9 @@ import Tags from '../components/article/Tags';
 import Content, { HTMLContent } from '../components/shared/Content';
 import Layout from '../components/shared/Layout';
 import Columns, { Column } from '../components/shared/Columns';
-import StyledText from '../styles/text';
 import Header from '../styles/header';
 import Image from '../styles/image';
+import Link from '../components/shared/Link';
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -30,23 +30,23 @@ export const ArticleTemplate = ({
 
   return (
     <Layout issueMonthYear={issueMonthYear} textColor={textColor}>
-      <StyledText>
-        {helmet || ''}
-        <Header>
-          {title} by {authorName}
-        </Header>
-        {renderAst(content)}
-        <Columns>
-          <BottomCol>
-            <Subhead>Bio</Subhead>
-            <PostContent content={authorBio} />
-          </BottomCol>
-          <BottomCol>
-            <Subhead>Tags</Subhead>
-            <Tags tags={tags} />
-          </BottomCol>
-        </Columns>
-      </StyledText>
+      {helmet || ''}
+      <Header>{title}</Header>
+      <Header>{authorName.toUpperCase()}</Header>
+      {renderAst(content)}
+      <Columns>
+        <BottomCol>
+          <Subhead>Bio</Subhead>
+          <PostContent content={authorBio} />
+        </BottomCol>
+        <BottomCol>
+          <Subhead>Tags</Subhead>
+          <Tags tags={tags} />
+          <div>
+            <ShareLink href="https://www.twitter.com">Share ↗</ShareLink>
+          </div>
+        </BottomCol>
+      </Columns>
     </Layout>
   );
 };
@@ -118,4 +118,11 @@ const Subhead = styled.div`
 
 const BottomCol = Column.extend`
   margin-bottom: 50px;
+`;
+
+const ShareLink = Link.withComponent('a').extend`
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 `;

@@ -2,19 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
 import Navbar from './Navbar';
+import StyledText from '../../styles/text';
 
 const Layout = ({ children, issueMonthYear, textColor, backgroundColor }) => (
   <Background backgroundColor={backgroundColor} textColor={textColor}>
-    <Navbar issueMonthYear={issueMonthYear} />
-    <Container>
-      <Gutter>
-        <LogoWrap>
-          <Logo color="red" />
-        </LogoWrap>
-      </Gutter>
-      <Main>{children}</Main>
-      <Gutter />
-    </Container>
+    <StyledText>
+      <Navbar issueMonthYear={issueMonthYear} />
+      <Container>
+        <Gutter>
+          <LogoWrap>
+            <Logo color="red" />
+          </LogoWrap>
+        </Gutter>
+        <Main>{children}</Main>
+        <Gutter />
+      </Container>
+    </StyledText>
   </Background>
 );
 
@@ -32,7 +35,7 @@ const Container = styled.div`
 
 const Main = styled.div`
   flex: 1;
-  max-width: 800px;
+  max-width: 60em;
   margin: 0 auto;
 `;
 
