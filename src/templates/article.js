@@ -28,7 +28,7 @@ export const ArticleTemplate = ({
   issueMonthYear,
 }) => {
   const PostContent = contentComponent || Content;
-
+  console.log(content);
   return (
     <Layout issueMonthYear={issueMonthYear} textColor={textColor}>
       {helmet || ''}
