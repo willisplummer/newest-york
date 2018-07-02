@@ -1,7 +1,7 @@
 import React from 'react';
+import { graphql, Link } from 'gatsby';
 import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
 
 const TagsPage = ({
   data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
@@ -32,7 +32,6 @@ const TagsPage = ({
 
 export default TagsPage;
 
-// eslint-disable-next-line no-undef
 export const tagPageQuery = graphql`
   query TagsQuery {
     site {

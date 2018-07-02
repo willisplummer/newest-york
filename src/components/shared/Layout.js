@@ -1,11 +1,29 @@
 import React from 'react';
-import styled from 'styled-components';
+import Helmet from 'react-helmet';
+import styled, { injectGlobal } from 'styled-components';
 import Logo from './Logo';
 import Navbar from './Navbar';
 import StyledText from '../../styles/text';
 
+// eslint-disable-next-line no-unused-expressions
+injectGlobal`
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  html,
+  body {
+    margin: 0;
+    height: 100%
+  }
+`;
+
 const Layout = ({ children, issueMonthYear, textColor, backgroundColor }) => (
   <Background backgroundColor={backgroundColor} textColor={textColor}>
+    <Helmet title="Newest York" />
     <StyledText>
       <Navbar issueMonthYear={issueMonthYear} />
       <Container>

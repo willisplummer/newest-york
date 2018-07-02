@@ -1,13 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
+import { Link, graphql } from 'gatsby';
 
 const TagRoute = ({
   data: {
     allMarkdownRemark: { totalCount, edges: posts },
     site: { siteMetadata: title },
   },
-  pathContext: { tag },
+  pageContext: { tag },
 }) => {
   const postLinks = posts.map(post => (
     <li key={post.node.fields.slug}>
@@ -44,7 +44,6 @@ const TagRoute = ({
 
 export default TagRoute;
 
-// eslint-disable-next-line no-undef
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
     site {
