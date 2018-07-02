@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 
 export const IssueTemplate = ({ blurb, title, helmet }) => (
   <section className="section">
@@ -32,7 +33,6 @@ const Issue = ({ data }) => {
 
 export default Issue;
 
-// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query IssueById($id: String!) {
     markdownRemark(id: { eq: $id }) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { kebabCase } from 'lodash';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
@@ -32,7 +33,6 @@ const TagsPage = ({
 
 export default TagsPage;
 
-// eslint-disable-next-line no-undef
 export const tagPageQuery = graphql`
   query TagsQuery {
     site {

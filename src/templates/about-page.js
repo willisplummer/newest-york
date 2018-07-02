@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { markdown } from 'markdown';
 import _ from 'lodash';
 import Content, { HTMLContent } from '../components/shared/Content';
@@ -70,7 +71,6 @@ const AboutPage = ({ data }) => {
 
 export default AboutPage;
 
-// eslint-disable-next-line no-undef
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
     markdownRemark(id: { eq: $id }) {

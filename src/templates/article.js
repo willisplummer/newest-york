@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import RehypeReact from 'rehype-react';
 import styled from 'styled-components';
 import Tags from '../components/article/Tags';
@@ -80,7 +81,6 @@ const Article = ({ data }) => {
 
 export default Article;
 
-// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query ArticleById($id: String!) {
     markdownRemark(id: { eq: $id }) {

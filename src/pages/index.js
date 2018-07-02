@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import compact from 'lodash/compact';
 import sortBy from 'lodash/sortBy';
 import Article from '../components/current-issue/Article';
@@ -46,7 +47,6 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage;
 
-// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(

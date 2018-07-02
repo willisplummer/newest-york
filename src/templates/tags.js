@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
+import { graphql } from 'gatsby';
 
 const TagRoute = ({
   data: {
@@ -44,7 +45,6 @@ const TagRoute = ({
 
 export default TagRoute;
 
-// eslint-disable-next-line no-undef
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
     site {

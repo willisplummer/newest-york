@@ -6,7 +6,7 @@ require('./global-css');
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title="Newest York" />
-    {children()}
+    {children}
   </div>
 );
 

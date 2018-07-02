@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
 import Content, { HTMLContent } from '../components/shared/Content';
 
 export const AuthorTemplate = ({ name, bio, contentComponent, helmet }) => {
@@ -37,7 +38,6 @@ const Author = ({ data }) => {
 
 export default Author;
 
-// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query AuthorById($id: String!) {
     markdownRemark(id: { eq: $id }) {
