@@ -4782,7 +4782,7 @@ gatsby-cli@^2.0.0-beta.3:
     yargs "^11.1.0"
     yurnalist "^0.2.1"
 
-gatsby-link@^2.0.0-beta.3, gatsby-link@next:
+gatsby-link@^2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.0.0-beta.3.tgz#2be4a3ec734bb83d209aaaad3f66d5090bc3e4ce"
   dependencies:
@@ -4793,14 +4793,12 @@ gatsby-link@^2.0.0-beta.3, gatsby-link@next:
     react-lifecycles-compat "^3.0.2"
     ric "^1.3.0"
 
-gatsby-plugin-netlify-cms@next:
-  version "2.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify-cms/-/gatsby-plugin-netlify-cms-2.0.0-beta.3.tgz#794001429626f71aa8f841ddc262fa45a724708b"
+gatsby-plugin-netlify-cms@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify-cms/-/gatsby-plugin-netlify-cms-2.0.1.tgz#1c22c3b4019486436295cfb6ee8180658847dbd8"
   dependencies:
-    "@babel/runtime" "7.0.0-beta.51"
-    html-webpack-include-assets-plugin "^1.0.4"
+    html-webpack-include-assets-plugin "^1.0.2"
     html-webpack-plugin "^2.30.1"
-    netlify-cms "^1.3.5"
     netlify-identity-widget "^1.4.11"
 
 gatsby-plugin-page-creator@^2.0.0-beta.2:
@@ -5783,7 +5781,7 @@ html-void-elements@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/html-void-elements/-/html-void-elements-1.0.2.tgz#9d22e0ca32acc95b3f45b8d5b4f6fbdc05affd55"
 
-html-webpack-include-assets-plugin@^1.0.4:
+html-webpack-include-assets-plugin@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/html-webpack-include-assets-plugin/-/html-webpack-include-assets-plugin-1.0.4.tgz#279cfdf001301f5a945b2525f7f6394d48a3a157"
   dependencies:
@@ -7575,7 +7573,7 @@ neo-async@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.1.tgz#acb909e327b1e87ec9ef15f41b8a269512ad41ee"
 
-netlify-cms@^1.3.5, netlify-cms@^1.8.4:
+netlify-cms@^1.8.4:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/netlify-cms/-/netlify-cms-1.9.2.tgz#ccc40d5747d14ab4562c1e1fda2d3f3cd8db62ab"
   dependencies:
