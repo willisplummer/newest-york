@@ -7,7 +7,7 @@ const TagRoute = ({
     allMarkdownRemark: { totalCount, edges: posts },
     site: { siteMetadata: title },
   },
-  pathContext: { tag },
+  pageContext: { tag },
 }) => {
   const postLinks = posts.map(post => (
     <li key={post.node.fields.slug}>
