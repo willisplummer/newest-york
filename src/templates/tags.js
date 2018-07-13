@@ -2,10 +2,12 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import _ from 'lodash';
+import Columns, { Column } from '../components/shared/Columns';
 import Layout from '../components/shared/Layout';
+import Article from '../components/current-issue/Article';
 
 const TagRoute = ({
-  data: { latestIssue, allMarkdownRemark: { totalCount, edges: posts } },
+  data: { latestIssue, allMarkdownRemark: { edges: posts } },
   pageContext: { tag },
 }) => {
   const textColor = _.get(latestIssue, 'edges[0].node.frontmatter.textColor');
@@ -14,35 +16,29 @@ const TagRoute = ({
     'edges[0].node.frontmatter.backgroundColor',
   );
 
-  const postLinks = posts.map(post => (
-    <li key={post.node.fields.slug}>
-      <Link to={post.node.fields.slug}>
-        <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
-      </Link>
-    </li>
-  ));
-
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? '' : 's'
-  } tagged with “${tag}”`;
+  const taggedArticles = posts.map(
+    ({
+      node: { fields: { slug }, frontmatter: { title, author, subtitle } },
+    }) => (
+      <Article
+        key={slug}
+        slug={slug}
+        title={title}
+        author={author}
+        subtitle={subtitle}
+      />
+    ),
+  );
 
   return (
     <Layout textColor={textColor} backgroundColor={backgroundColor}>
       <Helmet title={`${tag}`} />
-      <div className="container content">
-        <div className="columns">
-          <div
-            className="column is-10 is-offset-1"
-            style={{ marginBottom: '6rem' }}
-          >
-            <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
-            <ul className="taglist">{postLinks}</ul>
-            <p>
-              <Link to="/tags/">Browse all tags</Link>
-            </p>
-          </div>
-        </div>
-      </div>
+      <Columns>
+        <Column>
+          <h1>{tag}</h1>
+        </Column>
+        <Column>{taggedArticles}</Column>
+      </Columns>
     </Layout>
   );
 };
@@ -59,7 +55,6 @@ export const tagPageQuery = graphql`
       edges {
         node {
           frontmatter {
-            issueMonthYear: date(formatString: "MMMM YYYY")
             textColor
             backgroundColor
           }
@@ -71,14 +66,16 @@ export const tagPageQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
-      totalCount
       edges {
         node {
           fields {
             slug
           }
           frontmatter {
+            author
+            order
             title
+            subtitle
           }
         }
       }
