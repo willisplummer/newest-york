@@ -1,10 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import _ from 'lodash';
 import Columns, { Column } from '../components/shared/Columns';
 import Layout from '../components/shared/Layout';
-import Article from '../components/current-issue/Article';
+import Article from '../components/tag/Article';
+import Header from '../styles/header';
 
 const TagRoute = ({
   data: { latestIssue, allMarkdownRemark: { edges: posts } },
@@ -35,7 +36,7 @@ const TagRoute = ({
       <Helmet title={`${tag}`} />
       <Columns>
         <Column>
-          <h1>{tag}</h1>
+          <TagHeader>{tag}</TagHeader>
         </Column>
         <Column>{taggedArticles}</Column>
       </Columns>
@@ -81,4 +82,10 @@ export const tagPageQuery = graphql`
       }
     }
   }
+`;
+
+const TagHeader = Header.extend`
+  text-align: left;
+  text-transform: capitalize;
+  margin: 40px 0;
 `;
