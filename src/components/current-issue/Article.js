@@ -31,7 +31,7 @@ const Title = text.withComponent('div').extend`
 `;
 
 const Author = Title.extend`
-  text-transform uppercase
+  text-transform: uppercase;
 `;
 
 const Subtitle = Title.extend`
