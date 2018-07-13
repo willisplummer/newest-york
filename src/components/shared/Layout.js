@@ -21,11 +21,17 @@ injectGlobal`
   }
 `;
 
-const Layout = ({ children, issueMonthYear, textColor, backgroundColor }) => (
+const Layout = ({
+  children,
+  issueMonthYear,
+  textColor,
+  backgroundColor,
+  isArticlePage,
+}) => (
   <Background backgroundColor={backgroundColor} textColor={textColor}>
     <Helmet title="Newest York" />
     <StyledText>
-      <Navbar issueMonthYear={issueMonthYear} />
+      <Navbar issueMonthYear={issueMonthYear} isArticlePage={isArticlePage} />
       <Container>
         <Gutter>
           <LogoWrap>

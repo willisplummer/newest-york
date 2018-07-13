@@ -1,5 +1,13 @@
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import media from './media-queries';
+
+const ImageWithCaption = props => (
+  <Fragment>
+    <Image {...props} />
+    <Caption>{props.alt}</Caption>
+  </Fragment>
+);
 
 const Image = styled.img`
   display: block;
@@ -15,4 +23,10 @@ const Image = styled.img`
   `};
 `;
 
-export default Image;
+const Caption = styled.div`
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+`;
+
+export default ImageWithCaption;

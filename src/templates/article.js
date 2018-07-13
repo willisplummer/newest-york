@@ -30,7 +30,7 @@ export const ArticleTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <Layout issueMonthYear={issueMonthYear} textColor={textColor}>
+    <Layout issueMonthYear={issueMonthYear} textColor={textColor} isArticlePage>
       {helmet || ''}
       <Header>{title}</Header>
       <Header>{authorName.toUpperCase()}</Header>
