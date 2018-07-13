@@ -1,14 +1,19 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
+import _ from 'lodash';
+import Layout from '../components/shared/Layout';
 
 const TagRoute = ({
-  data: {
-    allMarkdownRemark: { totalCount, edges: posts },
-    site: { siteMetadata: title },
-  },
+  data: { latestIssue, allMarkdownRemark: { totalCount, edges: posts } },
   pageContext: { tag },
 }) => {
+  const textColor = _.get(latestIssue, 'edges[0].node.frontmatter.textColor');
+  const backgroundColor = _.get(
+    latestIssue,
+    'edges[0].node.frontmatter.backgroundColor',
+  );
+
   const postLinks = posts.map(post => (
     <li key={post.node.fields.slug}>
       <Link to={post.node.fields.slug}>
@@ -22,8 +27,8 @@ const TagRoute = ({
   } tagged with “${tag}”`;
 
   return (
-    <section className="section">
-      <Helmet title={`${tag} | ${title}`} />
+    <Layout textColor={textColor} backgroundColor={backgroundColor}>
+      <Helmet title={`${tag}`} />
       <div className="container content">
         <div className="columns">
           <div
@@ -38,7 +43,7 @@ const TagRoute = ({
           </div>
         </div>
       </div>
-    </section>
+    </Layout>
   );
 };
 
@@ -46,9 +51,19 @@ export default TagRoute;
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
-    site {
-      siteMetadata {
-        title
+    latestIssue: allMarkdownRemark(
+      limit: 1
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { templateKey: { eq: "issue" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            issueMonthYear: date(formatString: "MMMM YYYY")
+            textColor
+            backgroundColor
+          }
+        }
       }
     }
     allMarkdownRemark(
