@@ -8,11 +8,16 @@ const Columns = styled.div`
 
   ${media.small`
     flex-direction: row;
+    justify-content: space-between;
   `};
 `;
 
 export const Column = styled.div`
-  flex: 1;
+  width: 100%;
+
+  ${media.small`
+    width: 45%;
+  `};
 `;
 
 export default Columns;
