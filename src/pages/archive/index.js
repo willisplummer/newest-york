@@ -33,7 +33,7 @@ const TagsPage = ({
 export default TagsPage;
 
 export const tagPageQuery = graphql`
-  query TagsQuery {
+  query ArchiveQuery {
     site {
       siteMetadata {
         title
