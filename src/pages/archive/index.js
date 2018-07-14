@@ -1,48 +1,66 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import { kebabCase } from 'lodash';
+import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
+import Layout from '../../components/shared/Layout';
+import Issue from '../../components/archive/Issue';
 
-const TagsPage = ({
-  data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
-}) => (
-  <section className="section">
-    <Helmet title={`Tags | ${title}`} />
-    <div className="container content">
-      <div className="columns">
-        <div
-          className="column is-10 is-offset-1"
-          style={{ marginBottom: '6rem' }}
-        >
-          <h1 className="title is-size-2 is-bold-light">Tags</h1>
-          <ul className="taglist">
-            {group.map(tag => (
-              <li key={tag.fieldValue}>
-                <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                  {tag.fieldValue} ({tag.totalCount})
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-);
+const ArchivePage = ({
+  data: { allMarkdownRemark: { edges: issues, totalCount } },
+}) => {
+  const latestIssue = issues[0].node;
+  const { textColor, backgroundColor } = latestIssue.frontmatter;
 
-export default TagsPage;
+  return (
+    <Layout textColor={textColor} backgroundColor={backgroundColor}>
+      <Helmet title="Newest York | Archive" />
+      {issues.map((issue, index) => (
+        <Issue
+          key={issue.node.frontmatter.title}
+          issue={issue.node}
+          issueNumber={totalCount - index}
+          textColor={textColor}
+        />
+      ))}
+    </Layout>
+  );
+};
 
-export const tagPageQuery = graphql`
-  query ArchiveQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(limit: 1000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
+export default ArchivePage;
+
+export const archivePageQuery = graphql`
+  query archiveQuery {
+    allMarkdownRemark(
+      limit: 500
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { templateKey: { eq: "issue" } } }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          fields {
+            slug
+            articles {
+              fields {
+                slug
+              }
+              frontmatter {
+                author
+                order
+                title
+                subtitle
+              }
+            }
+          }
+          frontmatter {
+            title
+            blurb
+            publicationMonthYear: date(formatString: "MMMM YYYY")
+            backgroundColor
+            textColor
+            image
+          }
+        }
       }
     }
   }
