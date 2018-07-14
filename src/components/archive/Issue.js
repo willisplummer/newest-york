@@ -49,7 +49,8 @@ const Issue = ({ issue, issueNumber, textColor }) => {
                   author={author}
                   subtitle={subtitle}
                 />
-              ))}
+              ),
+            )}
           </Column>
         </Columns>
       )}
