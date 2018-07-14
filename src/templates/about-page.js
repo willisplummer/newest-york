@@ -13,11 +13,16 @@ export const AboutPageTemplate = ({
   callForSubmissions,
   issueMonthYear,
   textColor,
+  backgroundColor,
 }) => {
   const PageContent = contentComponent || Content;
 
   return (
-    <Layout textColor={textColor} issueMonthYear={issueMonthYear}>
+    <Layout
+      textColor={textColor}
+      backgroundColor={backgroundColor}
+      issueMonthYear={issueMonthYear}
+    >
       <Columns>
         <Column>
           <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
@@ -55,6 +60,10 @@ const AboutPage = ({ data }) => {
     allMarkdownRemark,
     'edges[0].node.frontmatter.textColor',
   );
+  const backgroundColor = _.get(
+    allMarkdownRemark,
+    'edges[0].node.frontmatter.backgroundColor',
+  );
 
   return (
     <AboutPageTemplate
@@ -65,6 +74,7 @@ const AboutPage = ({ data }) => {
       content={post.html}
       issueMonthYear={latestIssueMonthYear}
       textColor={textColor}
+      backgroundColor={backgroundColor}
     />
   );
 };
@@ -91,6 +101,7 @@ export const aboutPageQuery = graphql`
           frontmatter {
             issueMonthYear: date(formatString: "MMMM YYYY")
             textColor
+            backgroundColor
           }
         }
       }

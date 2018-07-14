@@ -50,11 +50,13 @@ export default Layout;
 const Background = styled.div`
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ textColor }) => textColor};
+  height: 100vh;
+  overflow: auto;
 `;
 
 const Container = styled.div`
-  height: 100vh;
   display: flex;
+  height: 100%;
 `;
 
 const Main = styled.div`
