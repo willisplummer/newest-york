@@ -25,20 +25,11 @@ export const AboutPageTemplate = ({
     >
       <Columns>
         <Column>
-          <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-            About
-          </h2>
-          <PageContent className="content" content={content} />
-          <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-            Submitting
-          </h2>
-          <PageContent className="content" content={callForSubmissions} />
+          <PageContent content={content} />
+          <PageContent content={callForSubmissions} />
         </Column>
         <Column>
-          <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-            Masthead
-          </h2>
-          <PageContent className="content" content={masthead} />
+          <PageContent content={masthead} />
         </Column>
       </Columns>
     </Layout>
