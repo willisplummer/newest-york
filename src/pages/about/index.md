@@ -50,8 +50,7 @@ callForSubmissions: >-
   contribution. Please submit pitches to <mailto:info@newestyork.co>. FORK IT
   will be published in April 2018.
 ---
-Newest York is a project of Newest York Arts Press, a 501(c)3 not-for-profit publisher & arts organization.\
-test
+Newest York is a project of Newest York Arts Press, a 501(c)3 not-for-profit publisher & arts organization.
 
 Our mission is to support and showcase local artists whose work engages with New York City.
 
