@@ -6,9 +6,7 @@ import media from '../../styles/media-queries';
 
 const Navbar = ({ issueMonthYear, isArticlePage }) => (
   <Nav isArticlePage={isArticlePage}>
-    <First isArticlePage={isArticlePage}>
-      <StyledLink to="/">{issueMonthYear}</StyledLink>
-    </First>
+    <First isArticlePage={isArticlePage}>{issueMonthYear}</First>
     {isArticlePage ? (
       <XLink to="/">✕</XLink>
     ) : (
@@ -37,12 +35,12 @@ const Navbar = ({ issueMonthYear, isArticlePage }) => (
 export default Navbar;
 
 const Nav = styled.nav`
-  padding: 10px 20px;
+  padding: 20px 20px;
   display: flex;
   justify-content: center;
 
   ${media.small`
-    padding: 10px 35px;
+    padding: 20px 35px;
     justify-content: space-between;
   `};
 
@@ -66,10 +64,12 @@ const StyledLink = StyledText.withComponent(Link);
 
 const NavLink = StyledLink.extend`
   margin-left: 20px;
+  border-bottom: none;
 `;
 
 const XLink = NavLink.extend`
-  font-size: 24px;
+  font-size: 56px;
+  margin-top: -10px;
 `;
 
 const ExternalNavLink = NavLink.withComponent('a');

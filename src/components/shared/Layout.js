@@ -22,6 +22,10 @@ injectGlobal`
 
   a {
     color: inherit;
+    text-decoration: none;
+    border-bottom-color: inherit;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
   }
 `;
 

@@ -27,7 +27,7 @@ const LinkItem = styled(Link)`
 const Title = text.withComponent('div').extend`
   text-align: center;
   width: 100%;
-  font-size: 36px;
+  font-size: 56px;
 `;
 
 const Author = Title.extend`
@@ -35,5 +35,5 @@ const Author = Title.extend`
 `;
 
 const Subtitle = Title.extend`
-  font-size: 18px;
+  font-size: 28px;
 `;

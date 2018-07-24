@@ -15,7 +15,6 @@ export const Image = styled.img`
   margin-right: auto;
   width: 100%;
   height: auto;
-  border-radius: 7px;
 
   ${media.small`
     width: auto;
