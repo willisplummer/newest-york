@@ -10,7 +10,7 @@ tags:
 ---
 “Bodies of Work” is a recurring Newest York feature in which we sit down with a local artist or writer to hear in their own words what influences and animates them. This month, we're talking to photographer David Williams of Sunset Park, Brooklyn. He’s a vegetarian of ten years whose images of food (bacon festival included) have been published in the New York Times, The New Yorker, and Village Voice, among others. He also photographs humans and animals – most notably, men and their cats. He and his wife have two of the latter.
 
-->1. THE WORK OF MARTIN PARR<-
+\    1. THE WORK OF MARTIN PARR
 
 Martin Parr, the photographer, has shot a ton of food stuff. I have a ton of his books. I feel like he has food in every single one of his books, even if it's not a food book. Think of England (2000) had a lot of food in it and that's definitely the first book that I ever saw of his. Then later on he released a book called Real Food (2016) that's just food photography, like what he's done over the years. I love all of his work, but his food photography has always jumped out at me. It's poppy and colorful and campy.
 
