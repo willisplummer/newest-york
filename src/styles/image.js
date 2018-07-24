@@ -5,7 +5,7 @@ import media from './media-queries';
 const ImageWithCaption = props => (
   <Fragment>
     <Image {...props} />
-    <Caption>{props.alt}</Caption>
+    {props.alt && <Caption>{props.alt}</Caption>}
   </Fragment>
 );
 
