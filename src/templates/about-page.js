@@ -36,12 +36,9 @@ const AboutPage = ({ data }) => {
   const callForSubmissions = markdown.toHTML(
     post.frontmatter.callForSubmissions,
   );
+  console.log(post.frontmatter.masthead);
   const masthead = markdown.toHTML(post.frontmatter.masthead);
 
-  const latestIssueMonthYear = _.get(
-    allMarkdownRemark,
-    'edges[0].node.frontmatter.issueMonthYear',
-  );
   const textColor = _.get(
     allMarkdownRemark,
     'edges[0].node.frontmatter.textColor',
