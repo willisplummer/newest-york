@@ -11,18 +11,13 @@ export const AboutPageTemplate = ({
   contentComponent,
   masthead,
   callForSubmissions,
-  issueMonthYear,
   textColor,
   backgroundColor,
 }) => {
   const PageContent = contentComponent || Content;
 
   return (
-    <Layout
-      textColor={textColor}
-      backgroundColor={backgroundColor}
-      issueMonthYear={issueMonthYear}
-    >
+    <Layout textColor={textColor} backgroundColor={backgroundColor}>
       <Columns>
         <Column>
           <PageContent content={content} />
@@ -63,7 +58,6 @@ const AboutPage = ({ data }) => {
       masthead={masthead}
       callForSubmissions={callForSubmissions}
       content={post.html}
-      issueMonthYear={latestIssueMonthYear}
       textColor={textColor}
       backgroundColor={backgroundColor}
     />
@@ -90,7 +84,6 @@ export const aboutPageQuery = graphql`
       edges {
         node {
           frontmatter {
-            issueMonthYear: date(formatString: "MMMM YYYY")
             textColor
             backgroundColor
           }
