@@ -2,8 +2,7 @@
 templateKey: about-page
 title: About
 masthead: >-
-  Published and edited by Zach Halberg.
-
+  Published and edited by Zach Halberg.\
 
   Thank you to the contributors below:
 
@@ -11,20 +10,17 @@ masthead: >-
   NEWEST YORK
 
 
-  _Visuals editor_
-
+  _Visuals editor_\
 
   Jonno Rattman
 
 
-  _Contributing editors_
-
+  _Contributing editors_\
 
   Kayla Kumari Upadhyaya, Stela Xhiku, Hilary Reid, Ashley D'Arcy, John Surico
 
 
-  _Associate publishers_
-
+  _Associate publishers_\
 
   Haley Weiss, Chuka Ugwu-Oju
 
@@ -32,20 +28,17 @@ masthead: >-
   NEWEST YORK ARTS PRESS
 
 
-  _Art directors_
-
+  _Art directors_\
 
   Bonnie Briant, Bobbie Richardson
 
 
-  _Production manager_
-
+  _Production manager_\
 
   Luke Chase
 
 
-  _Board of directors_
-
+  _Board of directors_\
 
   Bonnie Briant, Chuka Ugwu-oju, Hilary Reid, Kayla Kumari Upadhyaya, Ruoyi
   Jiang, Tanmay Kumar, Jonno Rattman
