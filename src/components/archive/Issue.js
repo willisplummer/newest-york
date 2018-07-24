@@ -12,7 +12,8 @@ const Issue = ({ issue, issueNumber, textColor }) => {
   const sortedArticles = compact(sortBy(articles, 'frontmatter.order'));
 
   const issueHash = `#issue-${issueNumber}`;
-  const isSelected = window.location.hash === issueHash;
+  const isSelected =
+    typeof window !== 'undefined' && window.location.hash === issueHash;
   const arrow = isSelected ? '↑' : '↓';
 
   return (
