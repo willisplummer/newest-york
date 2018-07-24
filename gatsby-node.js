@@ -31,7 +31,7 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach(edge => {
-      const id = edge.node.id;
+      const { id } = edge.node;
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -68,6 +68,8 @@ exports.createPages = ({ actions, graphql }) => {
         },
       });
     });
+
+    return true;
   });
 };
 

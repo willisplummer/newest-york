@@ -19,6 +19,10 @@ injectGlobal`
     margin: 0;
     height: 100%
   }
+
+  a {
+    color: inherit;
+  }
 `;
 
 const Layout = ({
