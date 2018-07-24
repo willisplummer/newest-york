@@ -2,7 +2,7 @@
 templateKey: about-page
 title: About
 masthead: >-
-  Published and edited by Zach Halberg.
+  Published and edited by Zach Halberg.\
 
   Thank you to the contributors below:
 
@@ -10,17 +10,17 @@ masthead: >-
   NEWEST YORK
 
 
-  _Visuals editor_
+  _Visuals editor_\
 
   Jonno Rattman
 
 
-  _Contributing editors_
+  _Contributing editors_\
 
   Kayla Kumari Upadhyaya, Stela Xhiku, Hilary Reid, Ashley D'Arcy, John Surico
 
 
-  _Associate publishers_
+  _Associate publishers_\
 
   Haley Weiss, Chuka Ugwu-Oju
 
@@ -28,17 +28,17 @@ masthead: >-
   NEWEST YORK ARTS PRESS
 
 
-  _Art directors_
+  _Art directors_\
 
   Bonnie Briant, Bobbie Richardson
 
 
-  _Production manager_
+  _Production manager_\
 
   Luke Chase
 
 
-  _Board of directors_
+  _Board of directors_\
 
   Bonnie Briant, Chuka Ugwu-oju, Hilary Reid, Kayla Kumari Upadhyaya, Ruoyi
   Jiang, Tanmay Kumar, Jonno Rattman
@@ -50,9 +50,10 @@ callForSubmissions: >-
   contribution. Please submit pitches to <mailto:info@newestyork.co>. FORK IT
   will be published in April 2018.
 ---
-Newest York is a project of Newest York Arts Press, a 501(c)3 not-for-profit publisher & arts organization.
+Newest York is a project of Newest York Arts Press, a 501(c)3 not-for-profit publisher & arts organization.\
+test
 
-Our mission is to support and showcase local artists whose work engages with New York City.  
+Our mission is to support and showcase local artists whose work engages with New York City.
 
 Send us an email at info@newestyork.co or find us on Instagram or Twitter.
 
