@@ -8,55 +8,43 @@ masthead: >-
   Thank you to the contributors below:
 
 
+  NEWEST YORK
 
 
-  # NEWEST YORK 
-
-
-  ## Visuals editor
+  _Visuals editor_
 
 
   Jonno Rattman
 
 
-
-
-  ## Contributing editors
+  _Contributing editors_
 
 
   Kayla Kumari Upadhyaya, Stela Xhiku, Hilary Reid, Ashley D'Arcy, John Surico
 
 
-
-
-  ## Associate publishers
+  _Associate publishers_
 
 
   Haley Weiss, Chuka Ugwu-Oju
 
 
+  NEWEST YORK ARTS PRESS
 
 
-  # NEWEST YORK ARTS PRESS
-
-
-  ## Art directors
+  _Art directors_
 
 
   Bonnie Briant, Bobbie Richardson
 
 
-
-
-  ## Production manager
+  _Production manager_
 
 
   Luke Chase
 
 
-
-
-  ## Board of directors
+  _Board of directors_
 
 
   Bonnie Briant, Chuka Ugwu-oju, Hilary Reid, Kayla Kumari Upadhyaya, Ruoyi
