@@ -33,30 +33,28 @@ const Issue = ({ issue, issueNumber, textColor }) => {
       </ColumnsEnd>
 
       {/* this can be extracted into IssueDetails */}
-      {isSelected && (
-        <Columns>
-          <Column>
-            <LeftAlignedImage src={image} />
-          </Column>
-          <Column>
-            {sortedArticles.map(
-              ({
-                fields: { slug },
-                frontmatter: { title: articleTitle, author, subtitle },
-              }) => (
-                <Article
-                  key={slug}
-                  slug={slug}
-                  title={articleTitle}
-                  author={author}
-                  subtitle={subtitle}
-                  small
-                />
-              ),
-            )}
-          </Column>
-        </Columns>
-      )}
+      <SecondCols isSelected={isSelected}>
+        <Column>
+          <LeftAlignedImage src={image} />
+        </Column>
+        <Column>
+          {sortedArticles.map(
+            ({
+              fields: { slug },
+              frontmatter: { title: articleTitle, author, subtitle },
+            }) => (
+              <Article
+                key={slug}
+                slug={slug}
+                title={articleTitle}
+                author={author}
+                subtitle={subtitle}
+                small
+              />
+            ),
+          )}
+        </Column>
+      </SecondCols>
     </IssueContainer>
   );
 };
@@ -83,4 +81,12 @@ const Flex = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+`;
+
+const SecondCols = styled(Columns)`
+  overflow: hidden;
+  max-height: 0;
+  ${({ isSelected }) => isSelected && 'max-height: 1000px;'};
+  transition: max-height 1s ease-in;
+  -webkit-transition: max-height 1s; /* Safari */
 `;
