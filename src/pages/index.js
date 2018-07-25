@@ -19,6 +19,7 @@ class IndexPage extends Component {
       'scroll',
       () => {
         this.setState({ hasScrolled: true });
+        window.removeEventListener('scroll', this, true);
       },
       true,
     );
@@ -109,11 +110,17 @@ export const pageQuery = graphql`
 
 const HoverImage = styled(Image)`
   opacity: 1;
+  z-index: 1;
   position: fixed;
   top: 27%;
   left: 50%;
   transform: translateX(-50%);
-  ${({ hasScrolled }) => hasScrolled && `opacity: 0;`};
-  -webkit-transition: opacity 0.75s; /* Safari */
-  transition: opacity 0.75s;
+  ${({ hasScrolled }) =>
+    hasScrolled &&
+    `
+    opacity: 0;
+    z-index: -1;
+  `};
+  -webkit-transition: opacity 0.75s, z-index 0.75s; /* Safari */
+  transition: opacity 0.75s, z-index 0.75s;
 `;

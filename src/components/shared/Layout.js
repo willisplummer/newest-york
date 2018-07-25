@@ -4,8 +4,10 @@ import { Link } from 'gatsby';
 import styled, { injectGlobal } from 'styled-components';
 import Logo from './Logo';
 import Navbar from './Navbar';
+import Button from './Button';
 import StyledText from '../../styles/text';
 import { BORDER_WIDTH } from '../../styles/border-width';
+import { FONT_SIZE_LARGE } from '../../styles/font-size';
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
@@ -31,6 +33,11 @@ injectGlobal`
   }
 `;
 
+const scrollTop = () => {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+};
+
 const Layout = ({
   children,
   issueMonthYear,
@@ -49,7 +56,11 @@ const Layout = ({
           </LogoLink>
         </Gutter>
         <Main>{children}</Main>
-        <Gutter />
+        <Gutter>
+          {isArticlePage && (
+            <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
+          )}
+        </Gutter>
       </Container>
     </StyledText>
   </Background>
@@ -60,8 +71,7 @@ export default Layout;
 const Background = styled.div`
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ textColor }) => textColor};
-  height: 100vh;
-  overflow: auto;
+  min-height: 100vh;
 `;
 
 const Container = styled.div`
@@ -74,8 +84,6 @@ const Main = styled.div`
   margin: 0 auto;
 `;
 
-// TODO: THE WIDTH IS BEING SET BEFORE THE ROTATION
-// I WANT THE HEIGHT SET TO 100% of the width of the container
 const LogoLink = styled(Link)`
   border-bottom: none;
   position: fixed;
@@ -90,4 +98,13 @@ const Gutter = styled.div`
   width: 100px;
   height: 100%;
   position: relative;
+`;
+
+const UpArrowButton = Button.extend`
+  position: fixed;
+  z-index: 10;
+  width: 100px;
+  top: 45%;
+  right: 0;
+  font-size: ${FONT_SIZE_LARGE};
 `;
