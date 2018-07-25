@@ -36,7 +36,6 @@ const AboutPage = ({ data }) => {
   const callForSubmissions = markdown.toHTML(
     post.frontmatter.callForSubmissions,
   );
-  console.log(post.frontmatter.masthead);
   const masthead = markdown.toHTML(post.frontmatter.masthead);
 
   const textColor = _.get(

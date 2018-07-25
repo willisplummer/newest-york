@@ -66,7 +66,6 @@ const Background = styled.div`
 
 const Container = styled.div`
   display: flex;
-  height: 100%;
 `;
 
 const Main = styled.div`
