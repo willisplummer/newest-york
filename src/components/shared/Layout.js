@@ -21,7 +21,12 @@ injectGlobal`
   html,
   body {
     margin: 0;
-    height: 100%
+    height: 100%;
+    overflow: auto;
+  }
+
+  html {
+    overflow: hidden;
   }
 
   a {
