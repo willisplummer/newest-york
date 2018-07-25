@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import StyledText from '../../styles/text';
 import media from '../../styles/media-queries';
+import { FONT_SIZE_LARGE } from '../../styles/font-size';
 
 const Navbar = ({ issueMonthYear, isArticlePage }) => (
   <Nav isArticlePage={isArticlePage}>
@@ -68,7 +69,7 @@ const NavLink = StyledLink.extend`
 `;
 
 const XLink = NavLink.extend`
-  font-size: 56px;
+  font-size: ${FONT_SIZE_LARGE};
   margin-top: -10px;
 `;
 

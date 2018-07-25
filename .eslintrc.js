@@ -19,6 +19,7 @@ module.exports = {
     }
   },
   rules: {
+    'import/prefer-default-export': 1,
     'no-unused-vars': 2,
     'import/no-anonymous-default-export': 2,
     'prefer-object-spread/prefer-object-spread': 2,

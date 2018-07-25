@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import text from '../../styles/text';
+import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
 
-const Article = ({ author, title, subtitle, slug }) => (
+const Article = ({ author, title, subtitle, slug, small }) => (
   <Container>
     <LinkItem to={slug}>
-      <Title>{title}</Title>
-      <Author>{author}</Author>
+      <Title small={small}>{title}</Title>
+      <Author small={small}>{author}</Author>
       <Subtitle>{subtitle}</Subtitle>
     </LinkItem>
   </Container>
@@ -27,13 +28,15 @@ const LinkItem = styled(Link)`
 const Title = text.withComponent('div').extend`
   text-align: center;
   width: 100%;
-  font-size: 56px;
+  font-size: ${FONT_SIZE_LARGE};
+  ${({ small }) => small && `font-size: ${FONT_SIZE_DEFAULT};`};
 `;
 
 const Author = Title.extend`
   text-transform: uppercase;
+  ${({ small }) => small && `font-size: ${FONT_SIZE_DEFAULT};`};
 `;
 
 const Subtitle = Title.extend`
-  font-size: 28px;
+  font-size: ${FONT_SIZE_DEFAULT};
 `;

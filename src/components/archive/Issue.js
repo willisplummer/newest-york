@@ -5,6 +5,7 @@ import Columns, { Column } from '../../components/shared/Columns';
 import StyledLink from '../../components/shared/Link';
 import Article from '../../components/tag/Article';
 import { Image } from '../../styles/image';
+import { BORDER_WIDTH } from '../../styles/border-width';
 
 const Issue = ({ issue, issueNumber, textColor }) => {
   const { title, blurb, image } = issue.frontmatter;
@@ -49,6 +50,7 @@ const Issue = ({ issue, issueNumber, textColor }) => {
                   title={articleTitle}
                   author={author}
                   subtitle={subtitle}
+                  small
                 />
               ),
             )}
@@ -74,7 +76,7 @@ const ColumnsEnd = Columns.extend`
 const IssueContainer = styled(StyledLink)`
   text-decoration: none;
   display: block;
-  border-bottom: ${({ textcolor }) => `2px solid ${textcolor}`};
+  border-bottom: ${({ textcolor }) => `${BORDER_WIDTH} solid ${textcolor}`};
 `;
 
 const Flex = styled.div`

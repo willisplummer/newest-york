@@ -4,6 +4,7 @@ import styled, { injectGlobal } from 'styled-components';
 import Logo from './Logo';
 import Navbar from './Navbar';
 import StyledText from '../../styles/text';
+import { BORDER_WIDTH } from '../../styles/border-width';
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
@@ -25,7 +26,7 @@ injectGlobal`
     text-decoration: none;
     border-bottom-color: inherit;
     border-bottom-style: solid;
-    border-bottom-width: 2px;
+    border-bottom-width: ${BORDER_WIDTH};
   }
 `;
 

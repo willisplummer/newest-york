@@ -8,12 +8,12 @@ import Content, { HTMLContent } from '../components/shared/Content';
 import Layout from '../components/shared/Layout';
 import Columns, { Column } from '../components/shared/Columns';
 import Header from '../styles/header';
-import Image from '../styles/image';
+import ImageWithCaption from '../styles/image';
 import Link from '../components/shared/Link';
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
-  components: { img: Image },
+  components: { img: ImageWithCaption },
 }).Compiler;
 
 export const ArticleTemplate = ({
@@ -43,9 +43,9 @@ export const ArticleTemplate = ({
         <BottomCol>
           <Subhead>Tags</Subhead>
           <Tags tags={tags} />
-          <div>
+          <ShareWrap>
             <ShareLink href="https://www.twitter.com">Share ↗</ShareLink>
-          </div>
+          </ShareWrap>
         </BottomCol>
       </Columns>
     </Layout>
@@ -120,9 +120,11 @@ const BottomCol = Column.extend`
   margin-bottom: 50px;
 `;
 
+const ShareWrap = styled('div')`
+  margin-top: 8px;
+`;
+
 const ShareLink = Link.withComponent('a').extend`
   text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+  border-bottom: none;
 `;

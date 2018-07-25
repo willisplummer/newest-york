@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import text from '../../styles/text';
+import { FONT_SIZE_DEFAULT } from '../../styles/font-size';
 
 const Article = ({ author, title, subtitle, slug }) => (
   <Container>
@@ -27,7 +28,7 @@ const LinkItem = styled(Link)`
 const Title = text.withComponent('div').extend`
   text-align: left;
   width: 100%;
-  font-size: 36px;
+  font-size: ${FONT_SIZE_DEFAULT};
 `;
 
 const Author = Title.extend`
