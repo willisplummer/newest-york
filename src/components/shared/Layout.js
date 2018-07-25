@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { Link } from 'gatsby';
 import styled, { injectGlobal } from 'styled-components';
 import Logo from './Logo';
 import Navbar from './Navbar';
@@ -43,9 +44,9 @@ const Layout = ({
       <Navbar issueMonthYear={issueMonthYear} isArticlePage={isArticlePage} />
       <Container>
         <Gutter>
-          <LogoWrap>
+          <LogoLink to="/">
             <Logo color="red" />
-          </LogoWrap>
+          </LogoLink>
         </Gutter>
         <Main>{children}</Main>
         <Gutter />
@@ -76,12 +77,14 @@ const Main = styled.div`
 
 // TODO: THE WIDTH IS BEING SET BEFORE THE ROTATION
 // I WANT THE HEIGHT SET TO 100% of the width of the container
-const LogoWrap = styled.div`
-  position: absolute;
-  width: 100%;
+const LogoLink = styled(Link)`
+  border-bottom: none;
+  position: fixed;
   z-index: 10;
   transform: rotate(270deg);
-  top: 30%;
+  width: 300px;
+  top: 45%;
+  left: -100px;
 `;
 
 const Gutter = styled.div`
