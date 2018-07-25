@@ -109,9 +109,10 @@ export const pageQuery = graphql`
 
 const HoverImage = styled(Image)`
   opacity: 1;
-  position: absolute;
-  top: 30%;
-  left: 27%;
+  position: fixed;
+  top: 27%;
+  left: 50%;
+  transform: translateX(-50%);
   ${({ hasScrolled }) => hasScrolled && `opacity: 0;`};
   -webkit-transition: opacity 0.75s; /* Safari */
   transition: opacity 0.75s;
