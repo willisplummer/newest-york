@@ -15,7 +15,7 @@ collections:
     editor:
       preview: false
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "author"}
       - {label: "Name", name: "title", widget: "string"}
@@ -30,7 +30,7 @@ collections:
     create: true
     editor:
       preview: false
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "issue"}
       - {label: "Title", name: "title", widget: "string"}
@@ -47,7 +47,7 @@ collections:
       Articles belong to issues, they have an associated author.
     folder: "src/pages/articles"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article"}
       - {label: "Associated Issue", name: "issue", widget: "relation", collection: "issues", searchFields: ["title"], valueField: "title"}
