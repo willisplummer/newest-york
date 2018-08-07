@@ -3,11 +3,11 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   return graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark {
         edges {
           node {
             id
@@ -17,6 +17,7 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               tags
               templateKey
+              path
             }
           }
         }
@@ -43,6 +44,14 @@ exports.createPages = ({ actions, graphql }) => {
           id,
         },
       });
+
+      if (edge.node.frontmatter.path) {
+        createRedirect({
+          fromPath: `/${edge.node.frontmatter.path}`,
+          redirectInBrowser: true,
+          toPath: edge.node.fields.slug,
+        });
+      }
     });
 
     // Tag pages:

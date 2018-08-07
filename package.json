@@ -43,6 +43,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "clearcache": "rm -rf .cache && rm -rf public",
     "start": "npm run develop",
     "build": "gatsby build",
     "develop": "gatsby develop",

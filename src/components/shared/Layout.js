@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 import Button from './Button';
 import StyledText from '../../styles/text';
 import { BORDER_WIDTH } from '../../styles/border-width';
-import { FONT_SIZE_LARGE } from '../../styles/font-size';
+import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
@@ -35,6 +35,16 @@ injectGlobal`
     border-bottom-color: inherit;
     border-bottom-style: solid;
     border-bottom-width: ${BORDER_WIDTH};
+  }
+
+  h1, h2 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: -20px;
+    font-weight: normal;
+    color: inherit;
+    text-decoration: none;
+    font-size: ${FONT_SIZE_DEFAULT};
   }
 `;
 

@@ -8,6 +8,7 @@ order: '1'
 tags:
   - Food
   - Editors Note
+path: '1-gullet'
 ---
 ![Photo: Yana Paskova](/img/pubnote.jpg)
 
