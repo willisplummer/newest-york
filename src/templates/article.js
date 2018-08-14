@@ -34,23 +34,25 @@ export const ArticleTemplate = ({
   return (
     <Layout issueMonthYear={issueMonthYear} textColor={textColor} isArticlePage>
       {helmet || ''}
-      {galleryImages && <PhotoGallery imgs={galleryImages} />}
-      <Header>{title}</Header>
-      <Header>{authorName.toUpperCase()}</Header>
-      {renderAst(content)}
-      <Columns>
-        <Col>
-          <Subhead>Bio</Subhead>
-          <PostContent content={authorBio} />
-        </Col>
-        <Col>
-          <Subhead>Tags</Subhead>
-          <Tags tags={tags} />
-          <ShareWrap>
-            <ShareLink href="https://www.twitter.com">Share ↗</ShareLink>
-          </ShareWrap>
-        </Col>
-      </Columns>
+      <Wrap>
+        {galleryImages && <PhotoGallery imgs={galleryImages} />}
+        <Header>{title}</Header>
+        <Header>{authorName.toUpperCase()}</Header>
+        <Main>{renderAst(content)}</Main>
+        <Columns>
+          <Col>
+            <Subhead>Bio</Subhead>
+            <PostContent content={authorBio} />
+          </Col>
+          <Col>
+            <Subhead>Tags</Subhead>
+            <Tags tags={tags} />
+            <ShareWrap>
+              <ShareLink href="https://www.twitter.com">Share ↗</ShareLink>
+            </ShareWrap>
+          </Col>
+        </Columns>
+      </Wrap>
     </Layout>
   );
 };
@@ -116,6 +118,16 @@ export const pageQuery = graphql`
       }
     }
   }
+`;
+
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+`;
+
+const Main = styled.div`
+  flex: 1;
 `;
 
 const Subhead = styled.div`

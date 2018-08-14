@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import styled, { injectGlobal } from 'styled-components';
@@ -19,7 +19,8 @@ injectGlobal`
   }
 
   html,
-  body {
+  body,
+  #___gatsby {
     margin: 0;
     height: 100%;
     overflow: auto;
@@ -60,25 +61,27 @@ const Layout = ({
   backgroundColor,
   isArticlePage,
 }) => (
-  <Background backgroundColor={backgroundColor} textColor={textColor}>
+  <Fragment>
     <Helmet title="Newest York" />
     <StyledText>
-      <Navbar issueMonthYear={issueMonthYear} isArticlePage={isArticlePage} />
-      <Container>
-        <Gutter>
-          <LogoLink to="/">
-            <Logo color="red" />
-          </LogoLink>
-        </Gutter>
-        <Main>{children}</Main>
-        <Gutter>
-          {isArticlePage && (
-            <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
-          )}
-        </Gutter>
-      </Container>
+      <Background backgroundColor={backgroundColor} textColor={textColor}>
+        <Navbar issueMonthYear={issueMonthYear} isArticlePage={isArticlePage} />
+        <Container>
+          <Gutter>
+            <LogoLink to="/">
+              <Logo color="red" />
+            </LogoLink>
+          </Gutter>
+          <Main>{children}</Main>
+          <Gutter>
+            {isArticlePage && (
+              <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
+            )}
+          </Gutter>
+        </Container>
+      </Background>
     </StyledText>
-  </Background>
+  </Fragment>
 );
 
 export default Layout;
@@ -86,17 +89,22 @@ export default Layout;
 const Background = styled.div`
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ textColor }) => textColor};
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 `;
 
 const Container = styled.div`
   display: flex;
+  min-height: 100%;
+  flex: 1;
 `;
 
 const Main = styled.div`
   flex: 1;
   max-width: 60em;
   margin: 0 auto;
+  min-height: 100%;
 `;
 
 const LogoLink = styled(Link)`
