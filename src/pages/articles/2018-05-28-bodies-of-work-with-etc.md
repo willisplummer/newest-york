@@ -5,9 +5,13 @@ author: Newest York
 title: Bodies of Work With Etc
 subtitle: The feature continues
 order: '2'
+galleryImages:
+  - /img/17cover.jpg
+  - /img/github-icon.svg
+  - /img/pubnote.jpg
 tags:
   - tester
-path: '1-bodies'
+path: 1-bodies
 ---
 “Bodies of Work” is a recurring Newest York feature in which we sit down with a local artist or writer to hear in their own words what influences and animates them. This month, we're talking to photographer David Williams of Sunset Park, Brooklyn. He’s a vegetarian of ten years whose images of food (bacon festival included) have been published in the New York Times, The New Yorker, and Village Voice, among others. He also photographs humans and animals – most notably, men and their cats. He and his wife have two of the latter.
 
