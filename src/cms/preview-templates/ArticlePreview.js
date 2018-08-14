@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticleTemplate } from '../../templates/about-page';
+import { ArticleTemplate } from '../../templates/article';
 
 const ArticlePreview = ({ entry, widgetFor }) => (
   <ArticleTemplate

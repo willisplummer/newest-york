@@ -12,15 +12,22 @@ class IndexPage extends Component {
   constructor(props) {
     super(props);
     this.state = { hasScrolled: false };
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener(
-      'scroll',
-      () => {
-        this.setState({ hasScrolled: true });
-        window.removeEventListener('scroll', this, true);
-      },
+    window.addEventListener('scroll', this.handleScroll, true);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll, true);
+  }
+
+  handleScroll(event) {
+    this.setState({ hasScrolled: true });
+    event.currentTarget.removeEventListener(
+      event.type,
+      this.handleScroll,
       true,
     );
   }

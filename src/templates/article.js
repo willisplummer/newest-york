@@ -10,6 +10,7 @@ import Columns, { Column } from '../components/shared/Columns';
 import Header from '../styles/header';
 import ImageWithCaption from '../styles/image';
 import Link from '../components/shared/Link';
+import PhotoGallery from '../components/shared/PhotoGallery';
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -26,27 +27,29 @@ export const ArticleTemplate = ({
   tags,
   textColor,
   issueMonthYear,
+  galleryImages,
 }) => {
   const PostContent = contentComponent || Content;
 
   return (
     <Layout issueMonthYear={issueMonthYear} textColor={textColor} isArticlePage>
       {helmet || ''}
+      {galleryImages && <PhotoGallery imgs={galleryImages} />}
       <Header>{title}</Header>
       <Header>{authorName.toUpperCase()}</Header>
       {renderAst(content)}
       <Columns>
-        <BottomCol>
+        <Col>
           <Subhead>Bio</Subhead>
           <PostContent content={authorBio} />
-        </BottomCol>
-        <BottomCol>
+        </Col>
+        <Col>
           <Subhead>Tags</Subhead>
           <Tags tags={tags} />
           <ShareWrap>
             <ShareLink href="https://www.twitter.com">Share ↗</ShareLink>
           </ShareWrap>
-        </BottomCol>
+        </Col>
       </Columns>
     </Layout>
   );
@@ -55,6 +58,7 @@ export const ArticleTemplate = ({
 const Article = ({ data }) => {
   const { markdownRemark: post } = data;
   const {
+    frontmatter: { title, tags, galleryImages },
     fields: {
       issue: { frontmatter: { textColor, issueMonthYear } },
       author: {
@@ -68,13 +72,14 @@ const Article = ({ data }) => {
     <ArticleTemplate
       content={post.htmlAst}
       contentComponent={HTMLContent}
-      helmet={<Helmet title={`${post.frontmatter.title} | Newest York`} />}
-      title={post.frontmatter.title}
-      tags={post.frontmatter.tags}
+      helmet={<Helmet title={`${title} | Newest York`} />}
+      title={title}
+      tags={tags}
       authorName={authorName}
       authorBio={authorBio}
       textColor={textColor}
       issueMonthYear={issueMonthYear}
+      galleryImages={galleryImages}
     />
   );
 };
@@ -104,6 +109,7 @@ export const pageQuery = graphql`
         }
       }
       frontmatter {
+        galleryImages
         date(formatString: "MMMM DD, YYYY")
         title
         tags
@@ -116,7 +122,7 @@ const Subhead = styled.div`
   text-transform: uppercase;
 `;
 
-const BottomCol = Column.extend`
+const Col = Column.extend`
   margin-bottom: 50px;
 `;
 
