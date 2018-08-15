@@ -8,6 +8,7 @@ import Button from './Button';
 import StyledText from '../../styles/text';
 import { BORDER_WIDTH } from '../../styles/border-width';
 import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
+import { BlogPosts } from '../blog-posts';
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
@@ -57,29 +58,44 @@ const Layout = ({
   textColor,
   backgroundColor,
   isArticlePage,
-}) => (
-  <Fragment>
-    <Helmet title="Newest York" />
-    <StyledText>
-      <Background backgroundColor={backgroundColor} textColor={textColor}>
-        <Navbar issueMonthYear={issueMonthYear} isArticlePage={isArticlePage} />
-        <Container>
-          <Gutter>
-            <LogoLink to="/">
-              <Logo color="red" />
-            </LogoLink>
-          </Gutter>
-          <Main>{children}</Main>
-          <Gutter>
-            {isArticlePage && (
-              <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
-            )}
-          </Gutter>
-        </Container>
-      </Background>
-    </StyledText>
-  </Fragment>
-);
+  blogPosts,
+}) => {
+  const blogHash = `#etc`;
+  const showBlog =
+    typeof window !== 'undefined' && window.location.hash === blogHash;
+
+  return (
+    <Fragment>
+      <Helmet title="Newest York" />
+      <StyledText>
+        <Background
+          showBlog={showBlog}
+          backgroundColor={backgroundColor}
+          textColor={textColor}
+        >
+          <Navbar
+            issueMonthYear={issueMonthYear}
+            isArticlePage={isArticlePage}
+          />
+          <Container>
+            <Gutter>
+              <LogoLink to="/">
+                <Logo color="red" />
+              </LogoLink>
+            </Gutter>
+            <Main>{children}</Main>
+            <Gutter>
+              {isArticlePage && (
+                <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
+              )}
+            </Gutter>
+          </Container>
+        </Background>
+      </StyledText>
+      {showBlog && blogPosts && <BlogPosts data={blogPosts} />}
+    </Fragment>
+  );
+};
 
 export default Layout;
 
@@ -89,6 +105,7 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  ${({ showBlog }) => (showBlog ? 'overflow: none;' : '')};
 `;
 
 const Container = styled.div`

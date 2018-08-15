@@ -5,9 +5,9 @@ import StyledText from '../../styles/text';
 import media from '../../styles/media-queries';
 import { FONT_SIZE_LARGE } from '../../styles/font-size';
 
-const Navbar = ({ issueMonthYear, isArticlePage }) => (
+const Navbar = ({ issueMonthYear, isArticlePage, isBlog }) => (
   <Nav isArticlePage={isArticlePage}>
-    <First isArticlePage={isArticlePage}>{issueMonthYear}</First>
+    <First hide={isArticlePage || isBlog}>{issueMonthYear}</First>
     {isArticlePage ? (
       <XLink to="/">✕</XLink>
     ) : (
@@ -21,13 +21,7 @@ const Navbar = ({ issueMonthYear, isArticlePage }) => (
         >
           Shop
         </ExternalNavLink>
-        <ExternalNavLink
-          href="http://www.newestyork.co/blog/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Etc
-        </ExternalNavLink>
+        <NavLink to={isBlog ? '#' : '#etc'}>Etc</NavLink>
       </div>
     )}
   </Nav>
@@ -54,7 +48,7 @@ const Nav = styled.nav`
 `;
 
 const First = styled.div`
-  display: ${({ isArticlePage }) => (isArticlePage ? 'inline' : 'none')};
+  display: ${({ hide }) => (hide ? 'inline' : 'none')};
 
   ${media.small`
     display: inline;

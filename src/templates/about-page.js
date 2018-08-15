@@ -13,11 +13,16 @@ export const AboutPageTemplate = ({
   callForSubmissions,
   textColor,
   backgroundColor,
+  blogPosts,
 }) => {
   const PageContent = contentComponent || Content;
 
   return (
-    <Layout textColor={textColor} backgroundColor={backgroundColor}>
+    <Layout
+      blogPosts={blogPosts}
+      textColor={textColor}
+      backgroundColor={backgroundColor}
+    >
       <Columns>
         <Column>
           <PageContent content={content} />
@@ -56,6 +61,7 @@ const AboutPage = ({ data }) => {
       content={post.html}
       textColor={textColor}
       backgroundColor={backgroundColor}
+      blogPosts={data.blogPosts}
     />
   );
 };
@@ -86,5 +92,6 @@ export const aboutPageQuery = graphql`
         }
       }
     }
+    ...BlogPostsQueryFragment
   }
 `;
