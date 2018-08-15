@@ -16,7 +16,16 @@ class IndexPage extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll, true);
+    // TODO: put this function somewhere reusable
+    const blogHash = `#etc`;
+    const showBlog =
+      typeof window !== 'undefined' && window.location.hash === blogHash;
+    if (showBlog) {
+      // eslint-disable-next-line
+      this.setState({ hasScrolled: true });
+    } else {
+      window.addEventListener('scroll', this.handleScroll, true);
+    }
   }
 
   componentWillUnmount() {
