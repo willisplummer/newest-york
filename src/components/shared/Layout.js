@@ -8,6 +8,7 @@ import Button from './Button';
 import StyledText from '../../styles/text';
 import { BORDER_WIDTH } from '../../styles/border-width';
 import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
+import { BlogPosts } from '../blog-posts';
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
@@ -57,6 +58,7 @@ const Layout = ({
   textColor,
   backgroundColor,
   isArticlePage,
+  blogPosts,
 }) => (
   <Fragment>
     <Helmet title="Newest York" />
@@ -78,6 +80,7 @@ const Layout = ({
         </Container>
       </Background>
     </StyledText>
+    {blogPosts && <BlogPosts data={blogPosts} />}
   </Fragment>
 );
 

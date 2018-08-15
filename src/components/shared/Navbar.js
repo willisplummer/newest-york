@@ -21,13 +21,15 @@ const Navbar = ({ issueMonthYear, isArticlePage }) => (
         >
           Shop
         </ExternalNavLink>
-        <ExternalNavLink
-          href="http://www.newestyork.co/blog/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <NavLink
+          to={
+            typeof window !== 'undefined' && window.location.hash === '#etc'
+              ? '#'
+              : '#etc'
+          }
         >
           Etc
-        </ExternalNavLink>
+        </NavLink>
       </div>
     )}
   </Nav>
@@ -39,6 +41,7 @@ const Nav = styled.nav`
   padding: 20px 20px;
   display: flex;
   justify-content: center;
+  z-index: 10;
 
   ${media.small`
     padding: 20px 35px;

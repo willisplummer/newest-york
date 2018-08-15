@@ -1,21 +1,23 @@
 import React from 'react';
+import RehypeReact from 'rehype-react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
+import Header from '../styles/header';
+import ImageWithCaption from '../styles/image';
+import StyledText from '../styles/text';
 
-export const BlogPostTemplate = ({ blurb, title, helmet }) => (
-  <section className="section">
-    {helmet || ''}
-    <div className="container content">
-      <div className="columns">
-        <div className="column is-10 is-offset-1">
-          <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-            {title}
-          </h1>
-          <p>{blurb}</p>
-        </div>
-      </div>
-    </div>
-  </section>
+const renderAst = new RehypeReact({
+  createElement: React.createElement,
+  components: { img: ImageWithCaption },
+}).Compiler;
+
+export const BlogPostTemplate = ({ content, title, author }) => (
+  <Wrap>
+    <Header>{title}</Header>
+    <Header>{author.toUpperCase()}</Header>
+    <StyledText>{renderAst(content)}</StyledText>
+  </Wrap>
 );
 
 const BlogPost = ({ data }) => {
@@ -48,4 +50,8 @@ export const pageQuery = graphql`
       }
     }
   }
+`;
+
+const Wrap = styled.div`
+  padding: 24px;
 `;

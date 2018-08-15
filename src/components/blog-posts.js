@@ -1,24 +1,27 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import RehypeReact from 'rehype-react';
-import ImageWithCaption from '../styles/image';
-
-const renderAst = new RehypeReact({
-  createElement: React.createElement,
-  components: { img: ImageWithCaption },
-}).Compiler;
+import styled from 'styled-components';
+import media from '../styles/media-queries';
+import { BlogPostTemplate } from '../templates/blog-post';
 
 export const BlogPosts = ({ data }) => {
-  const { edges: blogPosts } = data.allMarkdownRemark;
+  const blogHash = `#etc`;
+  const isActive =
+    typeof window !== 'undefined' && window.location.hash === blogHash;
+  const { edges: blogPosts } = data;
 
-  return blogPosts.map(
+  const posts = blogPosts.map(
     ({ node: { htmlAst, frontmatter: { title, author } } }) => (
-      <div key={title}>
-        {title} by {author}
-        {renderAst(htmlAst)}
-      </div>
+      <BlogPostTemplate
+        key={title}
+        content={htmlAst}
+        title={title}
+        author={author}
+      />
     ),
   );
+
+  return isActive ? <Wrap>{posts}</Wrap> : null;
 };
 
 export default BlogPosts;
@@ -43,4 +46,19 @@ export const blogPostsQueryFragment = graphql`
       }
     }
   }
+`;
+
+const Wrap = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+
+  ${media.small`
+    left: 50%;
+  `};
+
+  padding-top: 100px;
 `;
