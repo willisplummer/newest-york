@@ -7,7 +7,7 @@ import { FONT_SIZE_LARGE } from '../../styles/font-size';
 
 const Navbar = ({ issueMonthYear, isArticlePage, isBlog }) => (
   <Nav isArticlePage={isArticlePage}>
-    <First isArticlePage={isArticlePage}>{issueMonthYear}</First>
+    <First hide={isArticlePage || isBlog}>{issueMonthYear}</First>
     {isArticlePage ? (
       <XLink to="/">✕</XLink>
     ) : (
@@ -48,7 +48,7 @@ const Nav = styled.nav`
 `;
 
 const First = styled.div`
-  display: ${({ isArticlePage }) => (isArticlePage ? 'inline' : 'none')};
+  display: ${({ hide }) => (hide ? 'inline' : 'none')};
 
   ${media.small`
     display: inline;

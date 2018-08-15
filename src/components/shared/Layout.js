@@ -92,10 +92,7 @@ const Layout = ({
           </Container>
         </Background>
       </StyledText>
-      {showBlog &&
-        blogPosts && (
-          <BlogPosts data={blogPosts} issueMonthYear={issueMonthYear} />
-        )}
+      {showBlog && blogPosts && <BlogPosts data={blogPosts} />}
     </Fragment>
   );
 };

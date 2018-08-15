@@ -5,7 +5,7 @@ import media from '../styles/media-queries';
 import { BlogPostTemplate } from '../templates/blog-post';
 import Navbar from './shared/Navbar';
 
-export const BlogPosts = ({ data, issueMonthYear }) => {
+export const BlogPosts = ({ data }) => {
   const { edges: blogPosts } = data;
 
   const Posts = blogPosts.map(
@@ -21,7 +21,7 @@ export const BlogPosts = ({ data, issueMonthYear }) => {
 
   return (
     <Wrap>
-      <Navbar issueMonthYear={issueMonthYear} isBlog />
+      <Navbar isBlog />
       {Posts}
     </Wrap>
   );
