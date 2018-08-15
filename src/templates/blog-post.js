@@ -1,6 +1,5 @@
 import React from 'react';
 import RehypeReact from 'rehype-react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import ImageWithCaption from '../styles/image';
@@ -32,7 +31,6 @@ const BlogPost = ({ data }) => {
       content={post.htmlAst}
       title={post.frontmatter.title}
       author={post.frontmatter.author}
-      slug={post.fields.slug}
     />
   );
 };
