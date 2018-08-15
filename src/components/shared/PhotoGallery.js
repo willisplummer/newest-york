@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import ImageWithCaption from '../../styles/image';
 
 const Gallery = ({ imgs, current, onDecrement, onIncrement }) => (
-  <Wrapper>
-    <ImageWithCaption
-      src={imgs[current]}
-      alt={`${current + 1} of ${imgs.length}`}
-    />
-    <ButtonLeft onClick={onDecrement} />
-    <ButtonRight onClick={onIncrement} />
-  </Wrapper>
+  <Fragment>
+    <Wrapper>
+      <Image src={imgs[current]} />
+      <ButtonLeft onClick={onDecrement} />
+      <ButtonRight onClick={onIncrement} />
+    </Wrapper>
+    <Caption>{`${current + 1} of ${imgs.length}`}</Caption>
+  </Fragment>
 );
 
 class PhotoGallery extends Component {
@@ -54,6 +54,20 @@ export default PhotoGallery;
 
 const Wrapper = styled.div`
   position: relative;
+  width: 600px;
+  margin: 0 auto;
+  background: #d9e5f7;
+`;
+
+const Image = styled(ImageWithCaption)`
+  margin: 0 auto;
+  max-width: 600px;
+`;
+
+const Caption = styled.div`
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
 `;
 
 const CircleButton = styled.button`
@@ -69,9 +83,9 @@ const CircleButton = styled.button`
 `;
 
 const ButtonLeft = CircleButton.extend`
-  left: 0;
+  left: -20px;
 `;
 
 const ButtonRight = CircleButton.extend`
-  right: 0;
+  right: -20px;
 `;
