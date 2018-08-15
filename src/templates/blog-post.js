@@ -3,20 +3,24 @@ import RehypeReact from 'rehype-react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import Header from '../styles/header';
 import ImageWithCaption from '../styles/image';
 import StyledText from '../styles/text';
 
+const BlogImageWithCaption = styled(ImageWithCaption)`
+  max-width: 100%;
+  height: auto;
+`;
+
 const renderAst = new RehypeReact({
   createElement: React.createElement,
-  components: { img: ImageWithCaption },
+  components: { img: BlogImageWithCaption },
 }).Compiler;
 
 export const BlogPostTemplate = ({ content, title, author }) => (
   <Wrap>
     <Header>{title}</Header>
     <Header>{author.toUpperCase()}</Header>
-    <StyledText>{renderAst(content)}</StyledText>
+    <div>{renderAst(content)}</div>
   </Wrap>
 );
 
@@ -52,6 +56,10 @@ export const pageQuery = graphql`
   }
 `;
 
-const Wrap = styled.div`
-  padding: 24px;
+const Wrap = StyledText.withComponent('div').extend`
+  padding: 28px 36px;
+`;
+
+const Header = styled.div`
+  text-align: center;
 `;

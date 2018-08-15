@@ -3,14 +3,12 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import media from '../styles/media-queries';
 import { BlogPostTemplate } from '../templates/blog-post';
+import Navbar from './shared/Navbar';
 
-export const BlogPosts = ({ data }) => {
-  const blogHash = `#etc`;
-  const isActive =
-    typeof window !== 'undefined' && window.location.hash === blogHash;
+export const BlogPosts = ({ data, issueMonthYear }) => {
   const { edges: blogPosts } = data;
 
-  const posts = blogPosts.map(
+  const Posts = blogPosts.map(
     ({ node: { htmlAst, frontmatter: { title, author } } }) => (
       <BlogPostTemplate
         key={title}
@@ -21,7 +19,12 @@ export const BlogPosts = ({ data }) => {
     ),
   );
 
-  return isActive ? <Wrap>{posts}</Wrap> : null;
+  return (
+    <Wrap>
+      <Navbar issueMonthYear={issueMonthYear} isBlog />
+      {Posts}
+    </Wrap>
+  );
 };
 
 export default BlogPosts;
@@ -60,5 +63,5 @@ const Wrap = styled.div`
     left: 50%;
   `};
 
-  padding-top: 100px;
+  overflow: scroll;
 `;

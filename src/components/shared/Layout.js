@@ -59,30 +59,46 @@ const Layout = ({
   backgroundColor,
   isArticlePage,
   blogPosts,
-}) => (
-  <Fragment>
-    <Helmet title="Newest York" />
-    <StyledText>
-      <Background backgroundColor={backgroundColor} textColor={textColor}>
-        <Navbar issueMonthYear={issueMonthYear} isArticlePage={isArticlePage} />
-        <Container>
-          <Gutter>
-            <LogoLink to="/">
-              <Logo color="red" />
-            </LogoLink>
-          </Gutter>
-          <Main>{children}</Main>
-          <Gutter>
-            {isArticlePage && (
-              <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
-            )}
-          </Gutter>
-        </Container>
-      </Background>
-    </StyledText>
-    {blogPosts && <BlogPosts data={blogPosts} />}
-  </Fragment>
-);
+}) => {
+  const blogHash = `#etc`;
+  const showBlog =
+    typeof window !== 'undefined' && window.location.hash === blogHash;
+
+  return (
+    <Fragment>
+      <Helmet title="Newest York" />
+      <StyledText>
+        <Background
+          showBlog={showBlog}
+          backgroundColor={backgroundColor}
+          textColor={textColor}
+        >
+          <Navbar
+            issueMonthYear={issueMonthYear}
+            isArticlePage={isArticlePage}
+          />
+          <Container>
+            <Gutter>
+              <LogoLink to="/">
+                <Logo color="red" />
+              </LogoLink>
+            </Gutter>
+            <Main>{children}</Main>
+            <Gutter>
+              {isArticlePage && (
+                <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
+              )}
+            </Gutter>
+          </Container>
+        </Background>
+      </StyledText>
+      {showBlog &&
+        blogPosts && (
+          <BlogPosts data={blogPosts} issueMonthYear={issueMonthYear} />
+        )}
+    </Fragment>
+  );
+};
 
 export default Layout;
 
@@ -92,6 +108,7 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  ${({ showBlog }) => (showBlog ? 'overflow: none;' : '')};
 `;
 
 const Container = styled.div`

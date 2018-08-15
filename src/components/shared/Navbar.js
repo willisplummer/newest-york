@@ -5,7 +5,7 @@ import StyledText from '../../styles/text';
 import media from '../../styles/media-queries';
 import { FONT_SIZE_LARGE } from '../../styles/font-size';
 
-const Navbar = ({ issueMonthYear, isArticlePage }) => (
+const Navbar = ({ issueMonthYear, isArticlePage, isBlog }) => (
   <Nav isArticlePage={isArticlePage}>
     <First isArticlePage={isArticlePage}>{issueMonthYear}</First>
     {isArticlePage ? (
@@ -21,15 +21,7 @@ const Navbar = ({ issueMonthYear, isArticlePage }) => (
         >
           Shop
         </ExternalNavLink>
-        <NavLink
-          to={
-            typeof window !== 'undefined' && window.location.hash === '#etc'
-              ? '#'
-              : '#etc'
-          }
-        >
-          Etc
-        </NavLink>
+        <NavLink to={isBlog ? '#' : '#etc'}>Etc</NavLink>
       </div>
     )}
   </Nav>
@@ -41,7 +33,6 @@ const Nav = styled.nav`
   padding: 20px 20px;
   display: flex;
   justify-content: center;
-  z-index: 10;
 
   ${media.small`
     padding: 20px 35px;

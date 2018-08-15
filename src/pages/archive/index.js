@@ -5,13 +5,17 @@ import Layout from '../../components/shared/Layout';
 import Issue from '../../components/archive/Issue';
 
 const ArchivePage = ({
-  data: { allMarkdownRemark: { edges: issues, totalCount } },
+  data: { blogPosts, allMarkdownRemark: { edges: issues, totalCount } },
 }) => {
   const latestIssue = issues[0].node;
   const { textColor, backgroundColor } = latestIssue.frontmatter;
 
   return (
-    <Layout textColor={textColor} backgroundColor={backgroundColor}>
+    <Layout
+      blogPosts={blogPosts}
+      textColor={textColor}
+      backgroundColor={backgroundColor}
+    >
       <Helmet title="Newest York | Archive" />
       {issues.map((issue, index) => (
         <Issue
@@ -63,5 +67,6 @@ export const archivePageQuery = graphql`
         }
       }
     }
+    ...BlogPostsQueryFragment
   }
 `;
