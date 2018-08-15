@@ -74,7 +74,6 @@ collections:
       - {label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["title"], valueField: "title"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Legacy Path", name: "path", widget: "string", required: false}
 
   - name: "pages"
     label: "Pages"
