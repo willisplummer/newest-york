@@ -56,6 +56,7 @@ class IndexPage extends Component {
         issueMonthYear={publicationMonthYear}
         textColor={textColor}
         backgroundColor={backgroundColor}
+        blogPosts={data.blogPosts}
       >
         <HoverImage src={image} hasScrolled={this.state.hasScrolled} />
         <IssueTitle title={latestIssueTitle} issueNumber={latestIssueNumber} />
@@ -112,6 +113,7 @@ export const pageQuery = graphql`
         }
       }
     }
+    ...BlogPostsQueryFragment
   }
 `;
 
