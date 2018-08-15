@@ -18,16 +18,13 @@ injectGlobal`
     box-sizing: inherit;
   }
 
-  html,
-  body,
-  #___gatsby {
-    margin: 0;
+  html, body {
     height: 100%;
-    overflow: auto;
+    margin: 0;
   }
 
-  html {
-    overflow: hidden;
+  #___gatsby {
+    height: inherit
   }
 
   a {
