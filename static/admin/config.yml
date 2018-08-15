@@ -56,10 +56,25 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string"}
       - {label: "Order", name: "order", widget: "number"}
-      - { label: "Gallery", name: "galleryImages", widget: "list", field: { label: "Image", name: "image", widget: "image" }}
+      - {label: "Gallery", name: "galleryImages", widget: "list", required: false, field: { label: "Image", name: "image", widget: "image" }}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Legacy Path", name: "path", widget: "string"}
+      - {label: "Legacy Path", name: "path", widget: "string", required: false}
+
+  - name: "blogPosts"
+    label: "Blog Posts"
+    label_singular: "Post"
+    description: >
+      Blog posts have an associated author and are displayed chronologically
+    folder: "src/pages/blog-posts"
+    create: true
+    slug: "{{slug}}-{{month}}-{{year}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
+      - {label: "Author", name: "author", widget: "relation", collection: "authors", searchFields: ["title"], valueField: "title"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Legacy Path", name: "path", widget: "string", required: false}
 
   - name: "pages"
     label: "Pages"
