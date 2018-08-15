@@ -28,6 +28,7 @@ export const ArticleTemplate = ({
   textColor,
   issueMonthYear,
   galleryImages,
+  slug,
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -48,7 +49,12 @@ export const ArticleTemplate = ({
             <Subhead>Tags</Subhead>
             <Tags tags={tags} />
             <ShareWrap>
-              <ShareLink href="https://www.twitter.com">Share ↗</ShareLink>
+              <ShareLink
+                href={`https://www.twitter.com/home?status=${title}%20by%20${authorName}%20on%20@NewestYork%20newestyork.com${slug}`}
+                target="_blank"
+              >
+                Share ↗
+              </ShareLink>
             </ShareWrap>
           </Col>
         </Columns>
@@ -62,6 +68,7 @@ const Article = ({ data }) => {
   const {
     frontmatter: { title, tags, galleryImages },
     fields: {
+      slug,
       issue: { frontmatter: { textColor, issueMonthYear } },
       author: {
         // fields: { slug: authorSlug },
@@ -82,6 +89,7 @@ const Article = ({ data }) => {
       textColor={textColor}
       issueMonthYear={issueMonthYear}
       galleryImages={galleryImages}
+      slug={slug}
     />
   );
 };
@@ -94,6 +102,7 @@ export const pageQuery = graphql`
       id
       htmlAst
       fields {
+        slug
         issue {
           frontmatter {
             textColor
