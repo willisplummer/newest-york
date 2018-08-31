@@ -52,6 +52,11 @@ injectGlobal`
     color: inherit;
     text-decoration: none;
   }
+
+  iframe {
+    display: block;
+    margin: 0 auto;
+  }
 `;
 
 const scrollTop = () => {
