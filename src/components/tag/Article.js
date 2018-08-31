@@ -23,6 +23,9 @@ const Container = styled.div`
 const LinkItem = styled(Link)`
   text-decoration: none;
   color: inherit;
+  :hover {
+    color: white;
+  }
 `;
 
 const Title = text.withComponent('div').extend`

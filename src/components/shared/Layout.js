@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 import Button from './Button';
 import StyledText from '../../styles/text';
 import { BORDER_WIDTH } from '../../styles/border-width';
-import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
+import { FONT_SIZE_LARGE } from '../../styles/font-size';
 import media from '../../styles/media-queries';
 import FONT_FAMILY from '../../styles/font-family';
 import { BlogPosts } from '../blog-posts';
@@ -16,8 +16,13 @@ import { BlogPosts } from '../blog-posts';
 injectGlobal`
   html {
     box-sizing: border-box;
-    font-size: 16px;
-    font-family: ${FONT_FAMILY}
+    font-family: ${FONT_FAMILY};
+
+    font-size: 12px;
+
+    ${media.small`
+      font-size: 16px;
+    `};
   }
 
   *,
@@ -56,6 +61,7 @@ injectGlobal`
   iframe {
     display: block;
     margin: 0 auto;
+    max-width: 100%;
   }
 `;
 
@@ -89,19 +95,15 @@ const Layout = ({
             issueMonthYear={issueMonthYear}
             isArticlePage={isArticlePage}
           />
+          <LogoLink to="/">
+            <Logo color={textColor} />
+          </LogoLink>
           <Container>
-            <Gutter>
-              <LogoLink to="/">
-                <Logo color={textColor} />
-              </LogoLink>
-            </Gutter>
             <Main>{children}</Main>
-            <Gutter>
-              {isArticlePage && (
-                <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
-              )}
-            </Gutter>
           </Container>
+          {isArticlePage && (
+            <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
+          )}
         </Background>
       </StyledText>
       {showBlog && blogPosts && <BlogPosts data={blogPosts} />}
@@ -121,21 +123,23 @@ const Background = styled.div`
 `;
 
 const Container = styled.div`
-  display: flex;
   min-height: 100%;
+  margin: 0 75px;
+  ${media.small`
+    margin: 0 75px;
+  `};
   flex: 1;
 `;
 
 const Main = styled.div`
-  flex: 1;
   max-width: 60em;
   margin: 0 auto;
   min-height: 100%;
 `;
 
 const LogoLink = styled(Link)`
-  border-bottom: none;
   position: fixed;
+  border-bottom: none;
   z-index: 10;
   transform: rotate(270deg);
   top: 45%;
@@ -145,21 +149,19 @@ const LogoLink = styled(Link)`
 
   ${media.small`
     width: 250px;
-    left: -74px;
+    left: -86px;
   `};
-`;
-
-const Gutter = styled.div`
-  height: 100%;
-  position: relative;
-  width: 100px;
 `;
 
 const UpArrowButton = Button.extend`
   position: fixed;
   z-index: 10;
-  width: 100px;
   bottom: 10px;
   right: 10px;
+  padding: 0;
+  padding-right: 20px;
+  ${media.small`
+    padding-right: 26px;
+  `};
   font-size: ${FONT_SIZE_LARGE};
 `;

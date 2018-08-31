@@ -53,7 +53,7 @@ export const pageQuery = graphql`
 
 const Wrap = StyledText.withComponent('div').extend`
   padding: 56px 0 28px;
-  margin: 0 36px;
+  margin: 0 75px;
   border-bottom: solid 2px black;
 `;
 

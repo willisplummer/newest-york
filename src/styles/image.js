@@ -19,6 +19,7 @@ export const Image = styled.img`
   ${media.small`
     width: auto;
     height: 500px;
+    max-width: 100%;
   `};
 `;
 

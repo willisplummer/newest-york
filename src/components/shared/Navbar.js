@@ -9,7 +9,7 @@ const Navbar = ({ issueMonthYear, isArticlePage, isBlog }) => (
   <Nav isArticlePage={isArticlePage}>
     <First hide={isArticlePage || isBlog}>{issueMonthYear}</First>
     {isArticlePage ? (
-      <XLink to="/">✕</XLink>
+      <XLink onClick={() => window.history.back()}>✕</XLink>
     ) : (
       <div>
         <NavLink to="/about">About</NavLink>
@@ -62,9 +62,9 @@ const NavLink = StyledLink.extend`
   border-bottom: none;
 `;
 
-const XLink = NavLink.extend`
+const ExternalNavLink = NavLink.withComponent('a');
+
+const XLink = ExternalNavLink.extend`
   font-size: ${FONT_SIZE_LARGE};
   margin-top: -10px;
 `;
-
-const ExternalNavLink = NavLink.withComponent('a');
