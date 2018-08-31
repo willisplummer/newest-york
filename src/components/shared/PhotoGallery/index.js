@@ -1,13 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
-import ImageWithCaption from '../../styles/image';
+import ImageWithCaption from '../../../styles/image';
+
+import pointer from './pointer.svg'; // Tell Webpack this JS file uses this image
 
 const Gallery = ({ imgs, current, onDecrement, onIncrement }) => (
   <Fragment>
     <Wrapper>
       <Image src={imgs[current]} />
-      <ButtonLeft onClick={onDecrement} />
-      <ButtonRight onClick={onIncrement} />
+      <ClearButtonLeft onClick={onDecrement} />
+      <ClearButtonRight onClick={onIncrement} />
     </Wrapper>
     <Caption>{`${current + 1} of ${imgs.length}`}</Caption>
   </Fragment>
@@ -53,39 +55,40 @@ class PhotoGallery extends Component {
 export default PhotoGallery;
 
 const Wrapper = styled.div`
+  height: 400px;
   position: relative;
-  width: 600px;
-  margin: 0 auto;
-  background: #d9e5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ClearButtonLeft = styled.button`
+  background: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  border: none;
+
+  cursor: url(${pointer}) 43 27, auto;
+
+  :focus {
+    outline: none;
+  }
+`;
+
+const ClearButtonRight = ClearButtonLeft.extend`
+  left: 50%;
 `;
 
 const Image = styled(ImageWithCaption)`
   margin: 0 auto;
-  max-width: 600px;
+  max-height: 100%;
 `;
 
 const Caption = styled.div`
   padding: 10px 0;
   width: 100%;
   text-align: center;
-`;
-
-const CircleButton = styled.button`
-  color: yellow;
-  background-color: yellow;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  cursor: pointer;
-  border: none;
-  position: absolute;
-  top: 50%;
-`;
-
-const ButtonLeft = CircleButton.extend`
-  left: -20px;
-`;
-
-const ButtonRight = CircleButton.extend`
-  right: -20px;
 `;
