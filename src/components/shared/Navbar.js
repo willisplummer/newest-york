@@ -11,7 +11,7 @@ const Navbar = ({ issueMonthYear, isArticlePage, isBlog }) => (
     {isArticlePage ? (
       <XLink onClick={() => window.history.back()}>✕</XLink>
     ) : (
-      <div>
+      <NavItems>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/archive">Archive</NavLink>
         <ExternalNavLink
@@ -22,7 +22,7 @@ const Navbar = ({ issueMonthYear, isArticlePage, isBlog }) => (
           Shop
         </ExternalNavLink>
         <NavLink to={isBlog ? '#' : '#etc'}>Etc</NavLink>
-      </div>
+      </NavItems>
     )}
   </Nav>
 );
@@ -45,6 +45,10 @@ const Nav = styled.nav`
     justify-content: space-between;
     padding: 10px 35px;
   `};
+`;
+
+const NavItems = styled.div`
+  margin-left: -20px;
 `;
 
 const First = styled.div`

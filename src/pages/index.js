@@ -15,15 +15,21 @@ class IndexPage extends Component {
   }
 
   componentDidMount() {
-    // TODO: put this function somewhere reusable
     const blogHash = `#etc`;
-    const showBlog =
+    const blogIsDisplayed =
       typeof window !== 'undefined' && window.location.hash === blogHash;
-    if (showBlog) {
+
+    const issueTitle = this.props.data.allMarkdownRemark.edges[0].title;
+
+    const hasSeenImageBefore = localStorage.getItem(issueTitle);
+
+    if (hasSeenImageBefore || blogIsDisplayed) {
       // eslint-disable-next-line
       this.setState({ hideImage: true });
     } else {
       setTimeout(() => this.setState({ hideImage: true }), 500);
+
+      localStorage.setItem(issueTitle, true);
     }
   }
 
