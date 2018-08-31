@@ -24,13 +24,8 @@ class IndexPage extends Component {
       this.setState({ hideImage: true });
     } else {
       setTimeout(() => this.setState({ hideImage: true }), 500);
-      // window.addEventListener('scroll', this.handleScroll, true);
     }
   }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener('scroll', this.handleScroll, true);
-  // }
 
   render() {
     const { data } = this.props;

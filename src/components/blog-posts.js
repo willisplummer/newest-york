@@ -1,5 +1,5 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React, { Fragment } from 'react';
+import { Link, graphql } from 'gatsby';
 import styled from 'styled-components';
 import media from '../styles/media-queries';
 import { BlogPostTemplate } from '../templates/blog-post';
@@ -20,10 +20,13 @@ export const BlogPosts = ({ data }) => {
   );
 
   return (
-    <Wrap>
-      <Navbar isBlog />
-      {Posts}
-    </Wrap>
+    <Fragment>
+      <Background to="#" />
+      <Wrap>
+        <Navbar isBlog />
+        {Posts}
+      </Wrap>
+    </Fragment>
   );
 };
 
@@ -49,6 +52,17 @@ export const blogPostsQueryFragment = graphql`
       }
     }
   }
+`;
+
+const Background = styled(Link)`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+
+  overflow: scroll;
 `;
 
 const Wrap = styled.div`

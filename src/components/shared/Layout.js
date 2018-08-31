@@ -9,18 +9,25 @@ import StyledText from '../../styles/text';
 import { BORDER_WIDTH } from '../../styles/border-width';
 import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
 import media from '../../styles/media-queries';
+import FONT_FAMILY from '../../styles/font-family';
 import { BlogPosts } from '../blog-posts';
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
   html {
     box-sizing: border-box;
+    font-size: 16px;
+    font-family: ${FONT_FAMILY}
   }
-  *, *:before, *:after {
+
+  *,
+  *:before,
+  *:after {
     box-sizing: inherit;
   }
 
-  html, body {
+  html,
+  body {
     height: 100%;
     margin: 0;
   }
@@ -44,7 +51,6 @@ injectGlobal`
     font-weight: normal;
     color: inherit;
     text-decoration: none;
-    font-size: ${FONT_SIZE_DEFAULT};
   }
 `;
 
