@@ -11,8 +11,7 @@ import styled from '../../node_modules/styled-components';
 class IndexPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasScrolled: false };
-    this.handleScroll = this.handleScroll.bind(this);
+    this.state = { hideImage: false };
   }
 
   componentDidMount() {
@@ -22,24 +21,16 @@ class IndexPage extends Component {
       typeof window !== 'undefined' && window.location.hash === blogHash;
     if (showBlog) {
       // eslint-disable-next-line
-      this.setState({ hasScrolled: true });
+      this.setState({ hideImage: true });
     } else {
-      window.addEventListener('scroll', this.handleScroll, true);
+      setTimeout(() => this.setState({ hideImage: true }), 500);
+      // window.addEventListener('scroll', this.handleScroll, true);
     }
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll, true);
-  }
-
-  handleScroll(event) {
-    this.setState({ hasScrolled: true });
-    event.currentTarget.removeEventListener(
-      event.type,
-      this.handleScroll,
-      true,
-    );
-  }
+  // componentWillUnmount() {
+  //   window.removeEventListener('scroll', this.handleScroll, true);
+  // }
 
   render() {
     const { data } = this.props;
@@ -67,7 +58,7 @@ class IndexPage extends Component {
         backgroundColor={backgroundColor}
         blogPosts={data.blogPosts}
       >
-        <HoverImage src={image} hasScrolled={this.state.hasScrolled} />
+        {this.state.hideImage || <HoverImage src={image} />}
         <IssueTitle title={latestIssueTitle} issueNumber={latestIssueNumber} />
         {sortedArticles.map(
           ({ fields: { slug }, frontmatter: { title, author, subtitle } }) => (
@@ -133,8 +124,8 @@ const HoverImage = styled(Image)`
   top: 27%;
   left: 50%;
   transform: translateX(-50%);
-  ${({ hasScrolled }) =>
-    hasScrolled &&
+  ${({ hideImage }) =>
+    hideImage &&
     `
     opacity: 0;
     z-index: -1;

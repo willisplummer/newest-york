@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { markdown } from 'markdown';
+import styled from 'styled-components';
 import _ from 'lodash';
 import Content, { HTMLContent } from '../components/shared/Content';
 import Columns, { Column } from '../components/shared/Columns';
@@ -23,7 +24,7 @@ export const AboutPageTemplate = ({
       textColor={textColor}
       backgroundColor={backgroundColor}
     >
-      <Columns>
+      <Cols>
         <Column>
           <PageContent content={content} />
           <PageContent content={callForSubmissions} />
@@ -31,7 +32,7 @@ export const AboutPageTemplate = ({
         <Column>
           <PageContent content={masthead} />
         </Column>
-      </Columns>
+      </Cols>
     </Layout>
   );
 };
@@ -94,4 +95,8 @@ export const aboutPageQuery = graphql`
     }
     ...BlogPostsQueryFragment
   }
+`;
+
+const Cols = styled(Columns)`
+  padding-bottom: 50px;
 `;

@@ -26,7 +26,7 @@ const Issue = ({ issue, issueNumber, textColor }) => {
         </Column>
         <Column>
           <Flex>
-            <div>{blurb}</div>
+            <Blurb>{blurb}</Blurb>
             <div>{arrow}</div>
           </Flex>
         </Column>
@@ -63,7 +63,10 @@ export default Issue;
 
 const LeftAlignedImage = styled(Image)`
   margin-left: 0;
+  margin-top: 40px;
   margin-bottom: 16px;
+  max-width: 100%;
+  height: auto;
 `;
 
 const ColumnsEnd = Columns.extend`
@@ -75,6 +78,10 @@ const IssueContainer = styled(StyledLink)`
   text-decoration: none;
   display: block;
   border-bottom: ${({ textcolor }) => `${BORDER_WIDTH} solid ${textcolor}`};
+`;
+
+const Blurb = styled.div`
+  padding-right: 12px;
 `;
 
 const Flex = styled.div`

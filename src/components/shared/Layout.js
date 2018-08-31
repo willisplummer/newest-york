@@ -8,6 +8,7 @@ import Button from './Button';
 import StyledText from '../../styles/text';
 import { BORDER_WIDTH } from '../../styles/border-width';
 import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
+import media from '../../styles/media-queries';
 import { BlogPosts } from '../blog-posts';
 
 // eslint-disable-next-line no-unused-expressions
@@ -80,7 +81,7 @@ const Layout = ({
           <Container>
             <Gutter>
               <LogoLink to="/">
-                <Logo color="red" />
+                <Logo color={textColor} />
               </LogoLink>
             </Gutter>
             <Main>{children}</Main>
@@ -126,22 +127,28 @@ const LogoLink = styled(Link)`
   position: fixed;
   z-index: 10;
   transform: rotate(270deg);
-  width: 300px;
   top: 45%;
-  left: -100px;
+
+  width: 160px;
+  left: -50px;
+
+  ${media.small`
+    width: 250px;
+    left: -74px;
+  `};
 `;
 
 const Gutter = styled.div`
-  width: 100px;
   height: 100%;
   position: relative;
+  width: 100px;
 `;
 
 const UpArrowButton = Button.extend`
   position: fixed;
   z-index: 10;
   width: 100px;
-  top: 45%;
-  right: 0;
+  bottom: 10px;
+  right: 10px;
   font-size: ${FONT_SIZE_LARGE};
 `;

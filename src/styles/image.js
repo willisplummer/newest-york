@@ -18,7 +18,7 @@ export const Image = styled.img`
 
   ${media.small`
     width: auto;
-    height: 400px;
+    height: 500px;
   `};
 `;
 
