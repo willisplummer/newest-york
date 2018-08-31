@@ -133,6 +133,7 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  flex: 1;
 `;
 
 const Main = styled.div`

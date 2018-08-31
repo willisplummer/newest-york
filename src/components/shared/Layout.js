@@ -95,18 +95,16 @@ const Layout = ({
             issueMonthYear={issueMonthYear}
             isArticlePage={isArticlePage}
           />
+          <Container>{children}</Container>
           <LogoLink to="/">
             <Logo color={textColor} />
           </LogoLink>
-          <Container>
-            <Main>{children}</Main>
-          </Container>
           {isArticlePage && (
             <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
           )}
+          {showBlog && blogPosts && <BlogPosts data={blogPosts} />}
         </Background>
       </StyledText>
-      {showBlog && blogPosts && <BlogPosts data={blogPosts} />}
     </Fragment>
   );
 };
@@ -116,25 +114,17 @@ export default Layout;
 const Background = styled.div`
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ textColor }) => textColor};
-  display: flex;
-  flex-direction: column;
   min-height: 100%;
   ${({ showBlog }) => (showBlog ? 'overflow: none;' : '')};
+  display: flex;
+  flex-direction: column;
 `;
 
 const Container = styled.div`
-  min-height: 100%;
   margin: 0 75px;
-  ${media.small`
-    margin: 0 75px;
-  `};
   flex: 1;
-`;
-
-const Main = styled.div`
-  max-width: 60em;
-  margin: 0 auto;
-  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const LogoLink = styled(Link)`
