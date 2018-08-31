@@ -67,4 +67,5 @@ const ExternalNavLink = NavLink.withComponent('a');
 const XLink = ExternalNavLink.extend`
   font-size: ${FONT_SIZE_LARGE};
   margin-top: -10px;
+  cursor: pointer;
 `;
