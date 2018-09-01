@@ -9,7 +9,7 @@ import Layout from '../components/shared/Layout';
 import Columns, { Column } from '../components/shared/Columns';
 import Header from '../styles/header';
 import ImageWithCaption from '../styles/image';
-import Link from '../components/shared/Link';
+import ShareArticle from '../components/shared/ShareArticle';
 import PhotoGallery from '../components/shared/PhotoGallery';
 
 const renderAst = new RehypeReact({
@@ -32,6 +32,8 @@ export const ArticleTemplate = ({
 }) => {
   const PostContent = contentComponent || Content;
 
+  const articleUrl = `newestyork.com${slug}`;
+
   return (
     <Layout issueMonthYear={issueMonthYear} textColor={textColor} isArticlePage>
       {helmet || ''}
@@ -48,14 +50,7 @@ export const ArticleTemplate = ({
           <Col>
             <Subhead>Tags</Subhead>
             <Tags tags={tags} />
-            <ShareWrap>
-              <ShareLink
-                href={`https://www.twitter.com/home?status=${title}%20by%20${authorName}%20on%20@NewestYork%20newestyork.com${slug}`}
-                target="_blank"
-              >
-                Share ↗
-              </ShareLink>
-            </ShareWrap>
+            <ShareArticle articleUrl={articleUrl} />
           </Col>
         </Columns>
       </Wrap>
@@ -146,13 +141,4 @@ const Subhead = styled.div`
 
 const Col = Column.extend`
   margin-bottom: 50px;
-`;
-
-const ShareWrap = styled('div')`
-  margin-top: 8px;
-`;
-
-const ShareLink = Link.withComponent('a').extend`
-  text-decoration: none;
-  border-bottom: none;
 `;
