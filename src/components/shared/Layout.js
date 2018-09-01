@@ -11,6 +11,7 @@ import { FONT_SIZE_LARGE } from '../../styles/font-size';
 import media from '../../styles/media-queries';
 import FONT_FAMILY from '../../styles/font-family';
 import { BlogPosts } from '../blog-posts';
+import yellowDot from './icons8-google-64.png';
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
@@ -84,7 +85,9 @@ const Layout = ({
 
   return (
     <Fragment>
-      <Helmet title="Newest York" />
+      <Helmet title="Newest York">
+        <link rel="icon" type="image/png" href={yellowDot} sizes="16x16" />
+      </Helmet>
       <StyledText>
         <Background
           showBlog={showBlog}
