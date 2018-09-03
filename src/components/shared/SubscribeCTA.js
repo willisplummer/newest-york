@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const COMPONENT_ID = 'subscribe-cta-input';
 
 const validateEmail = email =>
-  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+  /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
 class SubscribeCTA extends Component {
   constructor(props) {
@@ -32,10 +32,11 @@ class SubscribeCTA extends Component {
   }
 
   render() {
+    const successString = "We've added you to our list!";
     return (
       <Wrap>
         {this.state.isSubmitted ? (
-          <Submitted>We've added you to our list!</Submitted>
+          <Submitted>{successString}</Submitted>
         ) : (
           <SubscribeInput
             id={COMPONENT_ID}
