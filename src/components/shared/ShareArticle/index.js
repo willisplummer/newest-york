@@ -5,7 +5,7 @@ import Button from '../Button';
 const ShareComponent = ({ isCopied, onClick }) => (
   <ShareWrap>
     {isCopied ? (
-      <CopyConfirmation>Link Copied To Clipboard</CopyConfirmation>
+      'Link Copied To Clipboard!'
     ) : (
       <ShareButton onClick={onClick}>Share ↗</ShareButton>
     )}
@@ -60,18 +60,11 @@ class ShareArticle extends Component {
 export default ShareArticle;
 
 const ShareWrap = styled.div`
-  margin-top: 8px;
+  margin-top: 16px;
 `;
 
 const ShareButton = Button.extend`
   text-decoration: none;
   border-bottom: none;
-  padding: 10px 6px;
-`;
-
-const CopyConfirmation = styled.div`
-  border: solid 2px;
-  padding: 10px 6px;
-  text-align: center;
-  background: white;
+  padding: 0;
 `;
