@@ -52,8 +52,8 @@ injectGlobal`
 
   h1, h2 {
     text-align: center;
-    margin: 0;
-    margin-bottom: -20px;
+    margin: 12px 0;
+    margin-bottom: -12px;
     font-weight: normal;
     color: inherit;
     text-decoration: none;
@@ -61,7 +61,7 @@ injectGlobal`
 
   iframe {
     display: block;
-    margin: 0 auto;
+    margin: 12px auto;
     max-width: 100%;
   }
 `;
@@ -149,7 +149,7 @@ const LogoLink = styled(Link)`
 const UpArrowButton = Button.extend`
   position: fixed;
   z-index: 10;
-  bottom: 10px;
+  bottom: 20px;
   right: 10px;
   padding: 0;
   padding-right: 20px;

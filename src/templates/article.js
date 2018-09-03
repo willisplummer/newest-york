@@ -42,7 +42,7 @@ export const ArticleTemplate = ({
         <Header>{title}</Header>
         <Header>{authorName.toUpperCase()}</Header>
         <Main>{renderAst(content)}</Main>
-        <Columns>
+        <Cols>
           <Col>
             <Subhead>Bio</Subhead>
             <PostContent content={authorBio} />
@@ -52,7 +52,7 @@ export const ArticleTemplate = ({
             <Tags tags={tags} />
             <ShareArticle articleUrl={articleUrl} />
           </Col>
-        </Columns>
+        </Cols>
       </Wrap>
     </Layout>
   );
@@ -137,6 +137,10 @@ const Main = styled.div`
 
 const Subhead = styled.div`
   text-transform: uppercase;
+`;
+
+const Cols = Columns.extend`
+  margin-top: 24px;
 `;
 
 const Col = Column.extend`
