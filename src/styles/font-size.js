@@ -1,5 +1,3 @@
-export const FONT_SIZE_SMALL = '2rem';
+export const FONT_SIZE_DEFAULT = '1.125rem';
 
-export const FONT_SIZE_DEFAULT = '2rem';
-
-export const FONT_SIZE_LARGE = '3rem';
+export const FONT_SIZE_LARGE = '2.5rem';
