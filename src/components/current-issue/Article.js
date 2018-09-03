@@ -39,4 +39,5 @@ const Author = Title.extend`
 
 const Subtitle = Title.extend`
   font-size: ${FONT_SIZE_DEFAULT};
+  padding: 12px 0;
 `;
