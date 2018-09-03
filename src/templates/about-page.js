@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import _ from 'lodash';
 import Content, { HTMLContent } from '../components/shared/Content';
 import Columns, { Column } from '../components/shared/Columns';
+import SubscribeCTA from '../components/shared/SubscribeCTA';
 import Layout from '../components/shared/Layout';
 
 export const AboutPageTemplate = ({
@@ -27,6 +28,7 @@ export const AboutPageTemplate = ({
       <Cols>
         <Column>
           <PageContent content={content} />
+          <SubscribeCTA />
           <PageContent content={callForSubmissions} />
         </Column>
         <Column>
