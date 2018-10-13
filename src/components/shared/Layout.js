@@ -128,7 +128,7 @@ const Background = styled.div`
 `;
 
 const Container = styled.div`
-  margin: 0 75px;
+  margin: 0 45px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -144,8 +144,8 @@ const LogoLink = styled(Link)`
   transform: rotate(270deg);
   top: 45%;
 
-  width: 160px;
-  left: -44px;
+  width: 120px;
+  left: -40px;
 
   ${media.small`
     width: 200px;
@@ -161,7 +161,7 @@ const UpArrowButton = Button.extend`
   padding: 0;
   width: 2.25rem;
   font-size: ${FONT_SIZE_LARGE};
-  margin-right: 20px;
+  margin-right: 10px;
   ${media.small`
     margin-right: 35px;
   `};
