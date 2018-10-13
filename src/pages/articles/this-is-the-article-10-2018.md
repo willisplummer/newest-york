@@ -11,7 +11,7 @@ tags:
   - are
   - for
   - the isssue
-path: /onair/22-do-it
+path: onair/22-do-it
 ---
 siot;hs;eg;i sejg;isegs
 
