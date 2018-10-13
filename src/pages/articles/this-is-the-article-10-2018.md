@@ -5,6 +5,9 @@ author: Luiza Dale
 title: This is the article
 subtitle: An article demo
 order: '1'
+galleryImages:
+  - /img/minion.gif
+  - /img/17cover.jpg
 tags:
   - These
   - tags
