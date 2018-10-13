@@ -27,10 +27,15 @@ class IndexPage extends Component {
       // eslint-disable-next-line
       this.setState({ hideImage: true });
     } else {
-      setTimeout(() => this.setState({ hideImage: true }), 500);
+      // setTimeout(() => this.setState({ hideImage: true }), 1000);
 
       localStorage.setItem(issueTitle, true);
     }
+  }
+
+  hideImage(issueTitle) {
+    this.setState({ hideImage: true });
+    localStorage.setItem(issueTitle, true);
   }
 
   render() {
@@ -59,7 +64,13 @@ class IndexPage extends Component {
         backgroundColor={backgroundColor}
         blogPosts={data.blogPosts}
       >
-        {this.state.hideImage || <HoverImage src={image} />}
+        {this.state.hideImage ||
+          (image && (
+            <React.Fragment>
+              <CloseImage onClick={() => this.hideImage(latestIssueTitle)} />
+              <HoverImage src={image} />
+            </React.Fragment>
+          ))}
         <IssueTitle title={latestIssueTitle} issueNumber={latestIssueNumber} />
         {sortedArticles.map(
           ({ fields: { slug }, frontmatter: { title, author, subtitle } }) => (
@@ -116,6 +127,19 @@ export const pageQuery = graphql`
     }
     ...BlogPostsQueryFragment
   }
+`;
+
+// TODO : full page isnt working for some reason
+const CloseImage = styled.button`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
 `;
 
 const HoverImage = styled(Image)`

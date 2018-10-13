@@ -20,7 +20,7 @@ injectGlobal`
     box-sizing: border-box;
     font-family: ${FONT_FAMILY};
 
-    font-size: 12px;
+    font-size: 8px;
 
     ${media.small`
       font-size: 16px;
