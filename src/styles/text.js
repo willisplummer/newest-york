@@ -8,13 +8,6 @@ const StyledText = styled.span`
   font-family: ${FONT_FAMILY};
   text-decoration: none;
   line-height: 120%;
-
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
 `;
 
 export default StyledText;

@@ -55,7 +55,7 @@ class PhotoGallery extends Component {
 export default PhotoGallery;
 
 const Wrapper = styled.div`
-  height: 400px;
+  height: 25rem;
   position: relative;
   display: flex;
   align-items: center;

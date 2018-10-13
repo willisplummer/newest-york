@@ -159,7 +159,7 @@ const UpArrowButton = Button.extend`
   bottom: 20px;
   right: 0;
   padding: 0;
-  width: 35px;
+  width: 2.25rem;
   font-size: ${FONT_SIZE_LARGE};
   margin-right: 20px;
   ${media.small`

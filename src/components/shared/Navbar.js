@@ -46,7 +46,7 @@ const Nav = styled.nav`
     isArticlePage &&
     `
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 20px;
   `};
 `;
 
@@ -77,7 +77,7 @@ const StyledX = styled(X)`
 `;
 
 const XLink = ExternalNavLink.extend`
-  width: 35px;
+  width: 2.25rem;
   height: auto;
   cursor: pointer;
 `;
