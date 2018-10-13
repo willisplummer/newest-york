@@ -11,6 +11,7 @@ import { FONT_SIZE_LARGE } from '../../styles/font-size';
 import media from '../../styles/media-queries';
 import FONT_FAMILY from '../../styles/font-family';
 import { BlogPosts } from '../blog-posts';
+import Carrot from './Carrot';
 import favIcon from './favicon.ico';
 
 // eslint-disable-next-line no-unused-expressions
@@ -97,13 +98,16 @@ const Layout = ({
           <Navbar
             issueMonthYear={issueMonthYear}
             isArticlePage={isArticlePage}
+            textColor={textColor}
           />
           <Container>{children}</Container>
           <LogoLink to="/">
             <Logo color={textColor} />
           </LogoLink>
           {isArticlePage && (
-            <UpArrowButton onClick={scrollTop}>↑</UpArrowButton>
+            <UpArrowButton onClick={scrollTop}>
+              <Carrot color={textColor} />
+            </UpArrowButton>
           )}
           {showBlog && blogPosts && <BlogPosts data={blogPosts} />}
         </Background>
@@ -128,6 +132,9 @@ const Container = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  ${media.small`
+    margin: 0 100px;
+  `};
 `;
 
 const LogoLink = styled(Link)`
@@ -141,8 +148,8 @@ const LogoLink = styled(Link)`
   left: -44px;
 
   ${media.small`
-    width: 250px;
-    left: -86px;
+    width: 200px;
+    left: -50px;
   `};
 `;
 
@@ -150,11 +157,12 @@ const UpArrowButton = Button.extend`
   position: fixed;
   z-index: 10;
   bottom: 20px;
-  right: 10px;
+  right: 0;
   padding: 0;
-  padding-right: 20px;
-  ${media.small`
-    padding-right: 26px;
-  `};
+  width: 35px;
   font-size: ${FONT_SIZE_LARGE};
+  margin-right: 20px;
+  ${media.small`
+    margin-right: 35px;
+  `};
 `;

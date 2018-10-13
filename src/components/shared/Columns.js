@@ -8,7 +8,7 @@ const Columns = styled.div`
 
   ${media.small`
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
   `};
 `;
 
@@ -16,7 +16,7 @@ export const Column = styled.div`
   width: 100%;
 
   ${media.small`
-    width: 45%;
+    width: 48.5%;
   `};
 `;
 

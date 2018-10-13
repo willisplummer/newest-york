@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import X from './X';
 import StyledText from '../../styles/text';
 import media from '../../styles/media-queries';
-import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
+import { FONT_SIZE_DEFAULT } from '../../styles/font-size';
 
-const Navbar = ({ issueMonthYear, isArticlePage, isBlog }) => (
+const Navbar = ({ issueMonthYear, isArticlePage, isBlog, textColor }) => (
   <Nav isArticlePage={isArticlePage}>
     <First hide={isArticlePage || isBlog}>{issueMonthYear}</First>
     {isArticlePage ? (
-      <XLink onClick={() => window.history.back()}>✕</XLink>
+      <XLink onClick={() => window.history.back()}>
+        <StyledX color={textColor} />
+      </XLink>
     ) : (
       <NavItems>
         <NavLink to="/about">About</NavLink>
@@ -30,7 +33,7 @@ const Navbar = ({ issueMonthYear, isArticlePage, isBlog }) => (
 export default Navbar;
 
 const Nav = styled.nav`
-  padding: 20px 20px;
+  padding: 20px;
   display: flex;
   justify-content: center;
 
@@ -43,7 +46,7 @@ const Nav = styled.nav`
     isArticlePage &&
     `
     justify-content: space-between;
-    padding: 10px 35px;
+    padding: 10px 20px;
   `};
 `;
 
@@ -69,8 +72,12 @@ const NavLink = StyledLink.extend`
 
 const ExternalNavLink = NavLink.withComponent('a');
 
+const StyledX = styled(X)`
+  stroke-width: 6px;
+`;
+
 const XLink = ExternalNavLink.extend`
-  font-size: ${FONT_SIZE_LARGE};
-  margin-top: -10px;
+  width: 35px;
+  height: auto;
   cursor: pointer;
 `;

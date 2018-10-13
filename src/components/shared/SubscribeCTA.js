@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { BORDER_WIDTH } from '../../styles/border-width';
 
 const COMPONENT_ID = 'subscribe-cta-input';
 
@@ -55,7 +56,7 @@ export default SubscribeCTA;
 
 const Wrap = styled.div`
   width: 85%;
-  border: solid 3px;
+  border: solid ${BORDER_WIDTH};
 `;
 
 const Submitted = styled.div`
