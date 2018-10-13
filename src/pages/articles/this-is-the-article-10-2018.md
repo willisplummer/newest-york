@@ -28,9 +28,9 @@ seg
 
 es
 
-ges
+# ges
 
-g
+# g
 
 ![This is the caption minion](/img/minion.gif)
 
