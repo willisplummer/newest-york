@@ -8,7 +8,7 @@ const Columns = styled.div`
 
   ${media.small`
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   `};
 `;
 

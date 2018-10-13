@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import StyledText from '../../styles/text';
 import media from '../../styles/media-queries';
-import { FONT_SIZE_LARGE } from '../../styles/font-size';
+import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
 
 const Navbar = ({ issueMonthYear, isArticlePage, isBlog }) => (
   <Nav isArticlePage={isArticlePage}>
@@ -49,6 +49,7 @@ const Nav = styled.nav`
 
 const NavItems = styled.div`
   margin-left: -20px;
+  font-size: ${FONT_SIZE_DEFAULT};
 `;
 
 const First = styled.div`

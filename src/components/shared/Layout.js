@@ -138,7 +138,7 @@ const LogoLink = styled(Link)`
   top: 45%;
 
   width: 160px;
-  left: -50px;
+  left: -44px;
 
   ${media.small`
     width: 250px;

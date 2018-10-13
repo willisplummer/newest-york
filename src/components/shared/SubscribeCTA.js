@@ -40,7 +40,7 @@ class SubscribeCTA extends Component {
         ) : (
           <SubscribeInput
             id={COMPONENT_ID}
-            placeholder="Subscribe To Our Mailing List"
+            placeholder="Subscribe"
             type="text"
             onChange={this.handleUserInput}
             value={this.state.value}
