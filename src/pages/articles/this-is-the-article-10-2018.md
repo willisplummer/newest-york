@@ -20,10 +20,10 @@ siot;hs;eg;i sejg;isegs
 
 ges
 
-g . 
-esg . 
-seg . 
-es . 
+g  
+esg  
+seg  
+es  
 
 # ges
 
