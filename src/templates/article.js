@@ -43,10 +43,12 @@ export const ArticleTemplate = ({
         <Header>{authorName.toUpperCase()}</Header>
         <Main>{renderAst(content)}</Main>
         <Cols>
-          <Col>
-            <Subhead>Bio</Subhead>
-            <PostContent content={authorBio} />
-          </Col>
+          {authorBio && (
+            <Col>
+              <Subhead>Bio</Subhead>
+              <PostContent content={authorBio} />
+            </Col>
+          )}
           <Col>
             <Subhead>Tags</Subhead>
             <Tags tags={tags} />
