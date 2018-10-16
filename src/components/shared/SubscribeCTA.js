@@ -56,7 +56,7 @@ class SubscribeCTA extends Component {
         ) : (
           <form
             name="subscribe"
-            action="#success"
+            action="/about#success"
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
