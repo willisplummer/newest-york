@@ -50,13 +50,21 @@ class SubscribeCTA extends Component {
         {this.state.isSubmitted ? (
           <Submitted>{successString}</Submitted>
         ) : (
-          <SubscribeInput
-            id={COMPONENT_ID}
-            placeholder="Subscribe"
-            type="text"
-            onChange={this.handleUserInput}
-            value={this.state.value}
-          />
+          <form
+            name="subscribe"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="subscribe" />
+            <SubscribeInput
+              id={COMPONENT_ID}
+              placeholder="Subscribe"
+              type="text"
+              onChange={this.handleUserInput}
+              value={this.state.value}
+            />
+          </form>
         )}
       </Wrap>
     );
