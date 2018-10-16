@@ -7,6 +7,11 @@ const COMPONENT_ID = 'subscribe-cta-input';
 const validateEmail = email =>
   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
+const encode = data =>
+  Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+
 class SubscribeCTA extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +28,13 @@ class SubscribeCTA extends Component {
         document.activeElement.id === COMPONENT_ID &&
         e.key === 'Enter'
       ) {
-        this.setState({ value: '', isSubmitted: true });
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({ 'form-name': 'contact', email: this.state.value }),
+        })
+          .then(() => this.setState({ value: '', isSubmitted: true }))
+          .catch(console.log);
       }
     });
   }
