@@ -7,6 +7,10 @@ const COMPONENT_ID = 'subscribe-cta-input';
 const validateEmail = email =>
   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
+const successHash = `#success`;
+const submitSuccessHash =
+  typeof window !== 'undefined' && window.location.hash === successHash;
+
 const encode = data =>
   Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -47,12 +51,12 @@ class SubscribeCTA extends Component {
     const successString = "We've added you to our list!";
     return (
       <Wrap>
-        {this.state.isSubmitted ? (
+        {this.state.isSubmitted || submitSuccessHash ? (
           <Submitted>{successString}</Submitted>
         ) : (
           <form
             name="subscribe"
-            action=""
+            action="#success"
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
