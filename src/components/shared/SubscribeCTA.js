@@ -52,6 +52,7 @@ class SubscribeCTA extends Component {
         ) : (
           <form
             name="subscribe"
+            action=""
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
@@ -61,6 +62,7 @@ class SubscribeCTA extends Component {
               id={COMPONENT_ID}
               placeholder="Subscribe"
               type="text"
+              name="email"
               onChange={this.handleUserInput}
               value={this.state.value}
             />
