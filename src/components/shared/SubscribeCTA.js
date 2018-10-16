@@ -31,7 +31,7 @@ class SubscribeCTA extends Component {
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'contact', email: this.state.value }),
+          body: encode({ 'form-name': 'subscribe', email: this.state.value }),
         })
           .then(() => this.setState({ value: '', isSubmitted: true }))
           .catch(console.log);
