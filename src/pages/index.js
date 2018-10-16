@@ -129,8 +129,7 @@ export const pageQuery = graphql`
   }
 `;
 
-// TODO : full page isnt working for some reason
-const CloseImage = styled.button`
+const CloseImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
