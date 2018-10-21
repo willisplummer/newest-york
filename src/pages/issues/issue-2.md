@@ -1,10 +1,12 @@
 ---
 templateKey: issue
-title: Fork It
-date: 2018-05-13T17:29:00.398Z
-blurb: This is the food issue
-backgroundColor: '#000000'
-textColor: '#ff0000'
-image: /img/pubnote.jpg
+title: Do It
+date: 2018-10-01T17:29:00.398Z
+blurb: >-
+  This is where the blurb about this issue will appear. It needs to be written
+  every time.
+backgroundColor: '#D2424F'
+textColor: '#001B92  '
+image: ''
 ---
 
