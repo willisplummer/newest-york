@@ -1,8 +1,8 @@
 ---
 templateKey: article
-issue: Fork It
+issue: This Is A Test
 author: Newest York
-title: Bodies of Work With Etc
+title: Bodies of Work Test Post
 subtitle: The feature continues
 order: '2'
 galleryImages:
