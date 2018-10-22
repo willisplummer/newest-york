@@ -1,8 +1,8 @@
 ---
 templateKey: article
-issue: Fork It
+issue: This Is A Test
 author: Newest York
-title: Gullet Stuff
+title: Gullet Stuff Test Post
 subtitle: Publisher's Note
 order: '1'
 tags:
