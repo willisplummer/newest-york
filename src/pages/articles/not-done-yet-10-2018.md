@@ -8,7 +8,7 @@ order: '1'
 tags:
   - Note
 ---
-![](/img/dscf6312.jpg)
+![Photo: Lucia Buricelli](/img/dscf6312.jpg)
 
 Well into my twenties, I’ll admit with some shame and to my own peril, I did not know how to properly tie my shoes. I could tie a knot of two bunny ears, but anything involving an adult rabbit being looped around a hole—or maybe he was meant to enter the hole—felt beyond my abilities. It was only a few years ago that, armed with knowledge gleaned from YouTube videos meant for young children, I began a week-long effort to become comfortable with what I now acknowledge is a more satisfying approach to tying shoes.
 
@@ -23,3 +23,5 @@ I’m excited to announce that the experiment continues: We’re coming back in 
 In the meantime, our print publishing arm is keeping tremendously busy, with multiple announcements on the horizon in the very near future.
 
 As always, thank you for reading. We’ll see you in 2019.
+
+_Issue cover image: _[_Lucia Buricelli_](http://www.luciaburicelli.com/)_. Issue back cover image: _[_Victor Llorente_](http://www.vllorente.com/)_._
