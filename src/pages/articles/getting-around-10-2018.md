@@ -5,7 +5,6 @@ author: BENJAMIN KABAK
 title: Getting Around
 subtitle: A DIY Guide
 order: '2'
-galleryImages: []
 tags:
   - guide
 ---
