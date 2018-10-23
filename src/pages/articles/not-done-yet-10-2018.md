@@ -5,6 +5,7 @@ author: Newest York
 title: Not Done Yet
 subtitle: Publisher's Note
 order: '1'
+path: 'test'
 tags:
   - Note
 ---

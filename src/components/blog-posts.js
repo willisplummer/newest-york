@@ -33,7 +33,7 @@ export const BlogPosts = ({ data }) => {
 export default BlogPosts;
 
 export const blogPostsQueryFragment = graphql`
-  fragment BlogPostsQueryFragment on RootQueryType {
+  fragment BlogPostsQueryFragment on Query {
     blogPosts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
