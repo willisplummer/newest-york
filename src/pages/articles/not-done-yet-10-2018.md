@@ -7,6 +7,7 @@ subtitle: Publisher's Note
 order: '1'
 galleryImages:
   - /img/17cover.jpg
+path: 'test'
 tags:
   - Note
 ---
