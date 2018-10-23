@@ -67,10 +67,7 @@ const Article = ({ data }) => {
     fields: {
       slug,
       issue: { frontmatter: { textColor, issueMonthYear } },
-      author: {
-        // fields: { slug: authorSlug },
-        frontmatter: { title: authorName, bio: authorBio },
-      },
+      author: { frontmatter: { title: authorName, bio: authorBio } },
     },
   } = post;
 
@@ -93,7 +90,7 @@ const Article = ({ data }) => {
 
 export default Article;
 
-export const pageQuery = graphql`
+export const query = graphql`
   query ArticleById($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id

@@ -1,7 +1,7 @@
 ---
 templateKey: article
 issue: Do It
-author: Newest York
+author: JESSE STEINBACH
 title: Not Done Yet
 subtitle: Publisher's Note
 order: '1'
