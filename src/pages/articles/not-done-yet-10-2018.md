@@ -24,4 +24,6 @@ In the meantime, our print publishing arm is keeping tremendously busy, with mul
 
 As always, thank you for reading. We’ll see you in 2019.
 
-_Issue cover image: _[_Lucia Buricelli_](http://www.luciaburicelli.com/)_. Issue back cover image: _[_Victor Llorente_](http://www.vllorente.com/)_._
+```
+Issue cover image:  Issue back cover image: .
+```
