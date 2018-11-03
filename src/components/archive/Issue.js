@@ -18,7 +18,10 @@ const Issue = ({ issue, issueNumber, textColor }) => {
   const arrow = isSelected ? '↑' : '↓';
 
   return (
-    <IssueContainer to={isSelected ? '#' : issueHash} textcolor={textColor}>
+    <IssueContainer
+      to={isSelected ? '/archive' : `/archive${issueHash}`}
+      textcolor={textColor}
+    >
       <ColumnsEnd>
         <Column>
           <div>Issue {issueNumber}</div>
