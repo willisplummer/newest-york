@@ -16,8 +16,8 @@ const renderAst = new RehypeReact({
   components: { img: BlogImageWithCaption },
 }).Compiler;
 
-export const BlogPostTemplate = ({ content, title, author }) => (
-  <Wrap>
+export const BlogPostTemplate = ({ content, title, author, isLast }) => (
+  <Wrap isLast={isLast}>
     <Header>{title}</Header>
     <Header>{author.toUpperCase()}</Header>
     <div>{renderAst(content)}</div>
@@ -55,7 +55,8 @@ export const pageQuery = graphql`
 const Wrap = StyledText.withComponent('div').extend`
   padding: 56px 0 28px;
   margin: 0 75px;
-  border-bottom: solid ${BORDER_WIDTH};
+  border-bottom: ${({ isLast }) => (isLast ? 'none' : `solid ${BORDER_WIDTH}`)};
+  color: black;
 `;
 
 const Header = styled.div`

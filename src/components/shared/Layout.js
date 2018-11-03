@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 import Button from './Button';
 import StyledText from '../../styles/text';
 import { BORDER_WIDTH } from '../../styles/border-width';
-import { FONT_SIZE_LARGE } from '../../styles/font-size';
+import { FONT_SIZE_DEFAULT, FONT_SIZE_LARGE } from '../../styles/font-size';
 import media from '../../styles/media-queries';
 import FONT_FAMILY from '../../styles/font-family';
 import { BlogPosts } from '../blog-posts';
@@ -58,6 +58,7 @@ injectGlobal`
     font-weight: normal;
     color: inherit;
     text-decoration: none;
+    font-size: ${FONT_SIZE_DEFAULT};
   }
 
   iframe {

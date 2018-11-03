@@ -9,13 +9,16 @@ export const BlogPosts = ({ data }) => {
   const { edges: blogPosts } = data;
 
   const Posts = blogPosts.map(
-    ({ node: { htmlAst, frontmatter: { title, author } } }) => (
-      <BlogPostTemplate
-        key={title}
-        content={htmlAst}
-        title={title}
-        author={author}
-      />
+    ({ node: { htmlAst, frontmatter: { title, author } } }, idx) => (
+      <Fragment>
+        <BlogPostTemplate
+          key={title}
+          content={htmlAst}
+          title={title}
+          author={author}
+          isLast={idx === blogPosts.length - 1}
+        />
+      </Fragment>
     ),
   );
 
