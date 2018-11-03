@@ -64,6 +64,7 @@ const Background = styled(Link)`
   left: 0;
   right: 0;
   background: transparent;
+  border-bottom: none;
 
   overflow: scroll;
 `;
