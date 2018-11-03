@@ -24,6 +24,4 @@ In the meantime, our print publishing arm is keeping tremendously busy, with mul
 
 As always, thank you for reading. We’ll see you in 2019.
 
-```
-Issue cover image:  Issue back cover image: .
-```
+Issue cover image: <a href="http://luizadale.com/">Luiza</a>.
