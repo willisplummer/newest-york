@@ -90,12 +90,13 @@ const Layout = ({
       <Helmet title="Newest York">
         <link rel="icon" type="image/x-icon" href={favIcon} sizes="16x16" />
       </Helmet>
-      <StyledText>
-        <Background
-          showBlog={showBlog}
-          backgroundColor={backgroundColor}
-          textColor={textColor}
-        >
+
+      <Background
+        showBlog={showBlog}
+        backgroundColor={backgroundColor}
+        textColor={textColor}
+      >
+        <StyledText>
           <Navbar
             issueMonthYear={issueMonthYear}
             isArticlePage={isArticlePage}
@@ -111,8 +112,8 @@ const Layout = ({
             </UpArrowButton>
           )}
           {showBlog && blogPosts && <BlogPosts data={blogPosts} />}
-        </Background>
-      </StyledText>
+        </StyledText>
+      </Background>
     </Fragment>
   );
 };
@@ -122,7 +123,7 @@ export default Layout;
 const Background = styled.div`
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ textColor }) => textColor};
-  min-height: 100%;
+  min-height: 100vh;
   ${({ showBlog }) => (showBlog ? 'overflow: none;' : '')};
   display: flex;
   flex-direction: column;
