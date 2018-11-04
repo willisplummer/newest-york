@@ -11,7 +11,7 @@ import styled from '../../node_modules/styled-components';
 class IndexPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { hideImage: false };
+    this.state = { hideImage: true };
   }
 
   componentDidMount() {
@@ -19,16 +19,14 @@ class IndexPage extends Component {
     const blogIsDisplayed =
       typeof window !== 'undefined' && window.location.hash === blogHash;
 
-    const issueTitle = this.props.data.allMarkdownRemark.edges[0].title;
+    const { edges: issues } = this.props.data.allMarkdownRemark;
+    const issueTitle = issues[0].node.frontmatter.title;
 
     const hasSeenImageBefore = localStorage.getItem(issueTitle);
 
-    if (hasSeenImageBefore || blogIsDisplayed) {
+    if (!hasSeenImageBefore && !blogIsDisplayed) {
       // eslint-disable-next-line
-      this.setState({ hideImage: true });
-    } else {
-      // setTimeout(() => this.setState({ hideImage: true }), 1000);
-
+      this.setState({ hideImage: false });
       localStorage.setItem(issueTitle, true);
     }
   }
