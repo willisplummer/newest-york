@@ -24,4 +24,4 @@ Don't leave the fate of your travel in the hands of the MTA: take to control of 
 
 Beware the day pass rates though: a $12 24-hour pass makes Citi Bike an expensive short-term option, and a $3 single-ride charge exceeds the cost of a subway fare. Not to mention that New York drivers remain a safety hazard on the road for any cyclist. 
 
-_Photos: _[_Victor Llorente_](http://www.vllorente.com/)
+_Photos: [Victor Llorente](http://www.vllorente.com/)_
