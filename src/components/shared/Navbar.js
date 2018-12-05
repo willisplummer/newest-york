@@ -24,7 +24,7 @@ const Navbar = ({ issueMonthYear, isArticlePage, isBlog, textColor }) => (
         >
           Shop
         </ExternalNavLink>
-        <NavLink to={isBlog ? '#' : '#etc'}>Etc</NavLink>
+        <ExternalNavLink href={isBlog ? '#' : '#etc'}>Etc</ExternalNavLink>
       </NavItems>
     )}
   </Nav>
